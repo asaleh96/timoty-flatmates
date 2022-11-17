@@ -21,6 +21,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_192205) do
     t.string "name"
   end
 
+  create_table "households", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "captain_id", null: false
+    t.index ["captain_id"], name: "index_households_on_captain_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "points"
+    t.boolean "done"
+    t.datetime "due_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creator_id", null: false
+    t.bigint "assignee_id"
+    t.bigint "household_id", null: false
+    t.index ["assignee_id"], name: "index_tasks_on_assignee_id"
+    t.index ["creator_id"], name: "index_tasks_on_creator_id"
+    t.index ["household_id"], name: "index_tasks_on_household_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,4 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_17_192205) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "households", "users", column: "captain_id"
+  add_foreign_key "tasks", "households"
+  add_foreign_key "tasks", "users"
+  add_foreign_key "tasks", "users", column: "assignee_id"
+  add_foreign_key "tasks", "users", column: "creator_id"
 end

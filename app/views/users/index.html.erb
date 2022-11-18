@@ -1,0 +1,9 @@
+
+<div class="container" style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
+  <% @users.each do |user| %>
+    <div class="card" style="width: 18rem; justify-content: center; align-items: center; margin: 10px;">
+      <h2><%= user.username %></h2>
+      <%= user.email %>
+    </div>
+  <% end %>
+</div>

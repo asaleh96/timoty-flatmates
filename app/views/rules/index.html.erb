@@ -1,0 +1,11 @@
+<h1> Here we will display all the rules </h1>
+
+<div>
+    <% @rules.each do |rule| %>
+      <ol>
+        <li> <%= rule.name %>
+      </ol>
+    <% end %>
+</div>
+
+<%= link_to 'Add a rule', new_rule_path, class: 'secondary-btn'%>

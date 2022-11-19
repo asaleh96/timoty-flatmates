@@ -12,8 +12,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.household_id = @household.id
     @task.creator = current_user
-    @task.assignee_id = 1
-    @task.user_id = 1
+    @task.assignee = nil
     @task.save!
 
     redirect_to household_tasks_path(@household)

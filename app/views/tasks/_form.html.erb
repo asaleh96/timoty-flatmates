@@ -1,6 +1,9 @@
 <div style="width: 60%; margin: 20px auto;">
-<%= simple_form_for [@household, @rule] do |f| %>
+<%= simple_form_for [@household, @task] do |f| %>
   <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :due_date %>
+  <%= f.input :points %>
   <div style="text-align: center;">
     <%= f.submit class: "btn-flat" %>
   </div>

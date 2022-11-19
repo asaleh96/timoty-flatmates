@@ -1,11 +1,23 @@
-<h1 style='text-align:center'>Here we will display all the rules </h1>
+<h1 style='text-align:center'>Rules </h1>
 
 <div>
     <% @rules.each do |rule| %>
-      <ol>
+      <ul>
         <li> <%= rule.name %>
-      </ol>
+        <%= link_to edit_household_rule_path(rule.household, rule), class: 'secondary-btn' do %>
+        <i class="fa-solid fa-pen-to-square"></i>
+        <% end %>
+        <%= link_to household_rule_path(rule.household, rule), class: 'secondary-btn',
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+
+
+</li>
+
+
+      </ul>
     <% end %>
 </div>
 
-<%= link_to 'Add a rule', new_rule_path, class: 'secondary-btn'%>
+<%= link_to 'Add a rule', new_household_rule_path, class: 'secondary-btn'%>

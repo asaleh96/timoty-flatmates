@@ -3,7 +3,9 @@
   <% @users.each do |user| %>
     <div class="card" style="width: 18rem; justify-content: center; align-items: center; margin: 10px; padding: 10px">
       <h2><%= user.username %></h2>
+      <%= user.first_name %>
       <%= user.email %>
+
     </div>
   <% end %>
 </div>

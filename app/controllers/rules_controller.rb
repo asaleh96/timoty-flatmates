@@ -1,7 +1,8 @@
 class RulesController < ApplicationController
+  before_action :set_household, only: %i[new create edit update]
 
   def index
-      @rules = Rule.all
+    @rules = Rule.all
   end
 
   def new
@@ -11,9 +12,11 @@ class RulesController < ApplicationController
   def create
     params = rules_params
     @rule = Rule.new(params)
+    @rule.household = @household
     @rule.save!
-    redirect_to rules_path
+    redirect_to household_rules_path
   end
+
 
   def edit
     @rule = Rule.find(params[:id])
@@ -21,24 +24,30 @@ class RulesController < ApplicationController
 
   def update
     @rule = Rule.find(params[:id])
-    @rule.update(rule_params)
-    redirect_to rules_path
+    @rule.update(rules_params)
+    @rule.household = @household
+    redirect_to household_rules_path
   end
+
 
   def destroy
     @rule = Rule.find(params[:id])
     @rule.destroy
-    redirect_to rules_path, status: :see_other
+    redirect_to household_rules_path
   end
 
   private
 
   def rules_params
-    params.require(:rule).permit(:name)
+    params.require(:rule).permit(:name, :household_id)
   end
 
   def set_rule
-    @rule = Rule.find(params[:id])
+   @rule = Rule.find(params[:id])
+  end
+
+  def set_household
+    @household = Household.find(params[:household_id])
   end
 
 end

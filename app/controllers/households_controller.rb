@@ -1,15 +1,16 @@
 class HouseholdsController < ApplicationController
+  before_action :set_household, only: [:show, :edit, :update, :destroy]
 
   def index
     @households = Household.all
   end
 
   def show
-    @household = Household.find(params[:id])
   end
 
   def new
     @household = Household.new
+    authorize @household
   end
 
   def create
@@ -29,13 +30,11 @@ class HouseholdsController < ApplicationController
   end
 
   def update
-    @household = Household.find(params[:id])
     @household.update(household_params)
     redirect_to household_path(@household)
   end
 
   def destroy
-    @household = Household.find(params[:id])
     @household.destroy
     redirect_to households_path
   end
@@ -48,5 +47,10 @@ class HouseholdsController < ApplicationController
 
   def household_params
     params.require(:household).permit(:name, :captain_id)
+  end
+
+  def set_household
+    @household = Household.find(params[:id])
+    authorize @household
   end
 end

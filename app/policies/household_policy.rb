@@ -1,8 +1,30 @@
 class HouseholdPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
+    def resolve
+      scope.all
+    end
+
+    # def create
+    #   true
     # end
+
+    # def new
+    #   true
+    # end
+
+    # def show?
+    #   true
+    # end
+
+    # def update?
+    #   true
+    # end
+
+    # def destroy?
+    #   true
+    # end
+
+
   end
 end

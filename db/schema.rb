@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_132331) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_143459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_132331) do
     t.string "name"
     t.text "description"
     t.integer "points"
-    t.boolean "done"
+    t.boolean "done", default: false
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_132331) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.integer "earned_points"
+    t.integer "earned_points", default: 0
     t.integer "give_points"
     t.date "birthday_date"
     t.text "status"

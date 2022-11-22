@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -17,6 +18,8 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+
+
   private
 
   def user_params
@@ -26,4 +29,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
 end

@@ -6,6 +6,7 @@ class HouseholdsController < ApplicationController
   end
 
   def show
+    authorize @household
   end
 
   def new
@@ -16,6 +17,8 @@ class HouseholdsController < ApplicationController
   def create
     params = household_params
     params[:captain_id] = current_user.id
+    current_user.is_captain = true
+    current_user.save!
     @household = Household.new(params)
     @household.save!
     if @household.save
@@ -23,6 +26,7 @@ class HouseholdsController < ApplicationController
     else
       render :new
     end
+    authorize @household
   end
 
   def edit

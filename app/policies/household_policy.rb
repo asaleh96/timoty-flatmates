@@ -5,26 +5,24 @@ class HouseholdPolicy < ApplicationPolicy
       scope.all
     end
 
-    # def create
-    #   true
-    # end
+    def create?
+      true
+    end
 
-    # def new
-    #   true
-    # end
+    def new?
+      true
+    end
 
-    # def show?
-    #   true
-    # end
+    def show?
+      true
+    end
 
-    # def update?
-    #   true
-    # end
+    def update?
+      true
+    end
 
-    # def destroy?
-    #   true
-    # end
-
-
+    def destroy?
+      true
+    end
   end
 end

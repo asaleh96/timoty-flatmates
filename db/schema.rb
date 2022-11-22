@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_143459) do
     t.string "name"
     t.text "description"
     t.integer "points"
-    t.boolean "done", default: false
+    t.boolean "done"
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

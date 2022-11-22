@@ -14,6 +14,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_143459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "household_user_requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "household_id", null: false
+    t.boolean "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["household_id"], name: "index_household_user_requests_on_household_id"
+    t.index ["user_id"], name: "index_household_user_requests_on_user_id"
+  end
+
   create_table "households", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -34,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_143459) do
     t.string "name"
     t.text "description"
     t.integer "points"
-    t.boolean "done", default: false
+    t.boolean "done"
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,6 +77,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_143459) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "household_user_requests", "households"
+  add_foreign_key "household_user_requests", "users"
   add_foreign_key "households", "users", column: "captain_id"
   add_foreign_key "rules", "households"
   add_foreign_key "tasks", "households"

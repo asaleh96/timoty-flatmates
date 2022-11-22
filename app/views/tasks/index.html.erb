@@ -1,0 +1,16 @@
+<div class='container py-4 px-2'>
+  <h1 class="py-3">Tasks</h1>
+  <p>Your points: <%= current_user.earned_points %></p>
+  <div style='margin: 10px auto;'>
+<button class='btn-main'>
+<%= link_to "New Task", new_household_task_path %>
+</button>
+</div>
+
+  <div class="grid gap-4">
+    <% @tasks.each do |task| %>
+      <%= render 'tasks/task', task: task %>
+
+    <% end %>
+  </div>
+</div>

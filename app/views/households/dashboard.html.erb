@@ -1,0 +1,32 @@
+<div class='tabs-div'>
+<div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
+
+  <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined'>Rules <i class="fa-solid fa-house-user"></i></button>
+  <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active'>Tasks <i class="fa-solid fa-sink"></i></button>
+  <button id="abc" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' >Leaderboard <i class="fa-solid fa-trophy"></i></button>
+
+  <div data-tabs-target="tab" id="one">
+
+  <ul>
+<% @household.rules.each do |rule| %>
+<li><%= rule.name %></li>
+<% end %>
+</ul>
+   </div>
+  <div data-tabs-target="tab" id="two">
+  Tasks are coming soon - Household-user-task connection needs to be implemented first!
+</ul>
+  </div>
+  <div data-tabs-target="tab" id="abc">
+  <ol>
+ <% @household.users.order("earned_points desc").each_with_index do |user, index| %>
+ <li> <%= index + 1 %> <%= user.username %>
+  <%= user.earned_points %> </li>
+ <% end %>
+
+
+ </ol>
+
+  </div>
+</div>
+</div>

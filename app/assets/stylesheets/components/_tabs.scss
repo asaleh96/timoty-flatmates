@@ -1,0 +1,34 @@
+.active {
+  color: #f3703f;
+}
+
+.tabs-div {
+  text-align: center;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.tabs-underlined {
+
+  align-items: center;
+}
+
+.tabs-underlined .tab-underlined {
+  color: #f3703f;
+  padding: 8px 10px;
+  margin: 8px;
+  opacity: .4;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid #f3703f;
+
+}
+
+.tab {
+  display: block;
+}

@@ -1,8 +1,16 @@
 class HouseholdsController < ApplicationController
   before_action :set_household, only: [:show, :edit, :update, :destroy]
 
+  # As a user, I can only see my Household
+  # As a captain, I can create an Household (OK) > View Needed
+  # As a captain, I can update an Household
+  # As a captain, I can delete an Household
+
+  # Not sure about this Index method ?
+
+  # Make sure the HOUSEHOLD/INDEX is not accessible
   def index
-    @households = Household.all
+    @households = policy_scope(Household)
   end
 
   def show
@@ -15,30 +23,31 @@ class HouseholdsController < ApplicationController
   end
 
   def create
-    params = household_params
-    params[:captain_id] = current_user.id
+    @household = Household.new(household_params)
+    @household.captain = current_user
     current_user.is_captain = true
     current_user.save!
-    @household = Household.new(params)
-    @household.save!
+    authorize @household
+
     if @household.save
       redirect_to users_path
     else
       render :new
     end
-    authorize @household
   end
 
   def edit
-    @household = Household.find(params[:id])
+    authorize @household
   end
 
   def update
+    authorize @household
     @household.update(household_params)
     redirect_to household_path(@household)
   end
 
   def destroy
+    authorize @household
     @household.destroy
     redirect_to households_path
   end

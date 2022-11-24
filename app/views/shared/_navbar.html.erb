@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo-2.png", class: 'avatar' %>
+      <%= image_tag "3.png", class: 'img-fuid', style: 'width: 130px' %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,24 +11,23 @@
     <div class="navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My Tasks", '#', class: "nav-link" %>
+            <%= link_to "My Dashboard", '#', class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "My Household", households_path, class: "nav-link" %>
+          <li class="nav-item active">
+          <p class='nav-link'> Welcome, <%= current_user.username %>! </p>
           </li>
-          <li class="nav-item">
-            <%= link_to "Rules",  '#', class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Leaderboard", '#', class: "nav-link" %>
-          </li>
+
+
+
+
 
         <div style=''>
           <li class="nav-item dropdown">
+
             <%= image_tag "user-placeholder", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", user_path(current_user), class: "nav-link" %>

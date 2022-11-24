@@ -44,9 +44,16 @@ class HouseholdsController < ApplicationController
     @users = User.all
   end
 
+  def dashboard
+    @household = Household.find(params[:id])
+  end
+
+
   private
 
   def household_params
     params.require(:household).permit(:name, :captain_id)
   end
+
+
 end

@@ -1,1 +1,24 @@
-<h1 style='text-align:center'>My profile </h1>
+
+    <div class="container", style='width: 70%; margin: 20px auto;'>
+        <h1> Welcome, <%= @user.username %>!</h1>
+
+          <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, class: 'rounded-circle', height: 150, width: 150, crop: :fill, gravity: "auto", radius: "max" %>
+          <% else %>
+            <%= image_tag 'user-placeholder.png', class: 'rounded-circle', style: 'width: 150px', id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+
+          <ul>
+            <li> <i class="fa-solid fa-gears"></i></i> Status: <%= @user.status %></li>
+            <li> <i class="fa-solid fa-id-card-clip"></i>  Full Name:<%= @user.first_name %> <%= @user.last_name %> </li>
+            <li> <i class="fa-solid fa-envelope"></i> Email: <%= @user.email %> </li>
+            <li> <i class="fa-solid fa-cake-candles"></i> Birthday: <%= @user.birthday_date %> </li>
+          </ul>
+
+
+        <div style="padding: 20px;">
+          <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'secondary-btn' %>
+          <%= link_to 'Back to My Dashboard', '#', class: 'secondary-btn' %>
+        </div>
+
+    </div>

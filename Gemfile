@@ -82,3 +82,7 @@ group :test do
 end
 
 gem "tailwindcss-rails"
+
+gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"

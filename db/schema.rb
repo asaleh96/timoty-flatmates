@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_095145) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_183854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_095145) do
     t.index ["captain_id"], name: "index_households_on_captain_id"
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "household_id", null: false
+    t.boolean "accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["household_id"], name: "index_requests_on_household_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "rules", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_095145) do
     t.string "name"
     t.text "description"
     t.integer "points"
-    t.boolean "done", default: false
+    t.boolean "done"
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_095145) do
   add_foreign_key "household_user_requests", "households"
   add_foreign_key "household_user_requests", "users"
   add_foreign_key "households", "users", column: "captain_id"
+  add_foreign_key "requests", "households"
+  add_foreign_key "requests", "users"
   add_foreign_key "rules", "households"
   add_foreign_key "tasks", "households"
   add_foreign_key "tasks", "users", column: "assignee_id"

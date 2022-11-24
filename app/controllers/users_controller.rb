@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @request = Request.new
   end
 
   def show

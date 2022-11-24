@@ -1,11 +1,17 @@
 
 <div class="container" style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
   <% @users.each do |user| %>
-    <div class="card" style="width: 18rem; justify-content: center; align-items: center; margin: 10px; padding: 10px">
-      <h2><%= user.username %></h2>
-      <%= user.first_name %>
-      <%= user.email %>
-
+    <div class="card" style="width: 18rem; margin: 10px; padding: 10px;">
+      <div class="card-body">
+        <h2><%= user.username %></h2>
+        <%= user.first_name %>
+        <%= user.email %>
+      </div>
+      <div class="btn submit-btn" style="border: 1px solid #e6e6e6;">
+        <%= simple_form_for [user, @request] do |f| %>
+          <%= f.submit "Submit Request" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

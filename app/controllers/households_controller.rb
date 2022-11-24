@@ -18,6 +18,7 @@ class HouseholdsController < ApplicationController
     @household = Household.new(params)
     @household.save!
     if @household.save
+      current_user.update(household_id: @household.id)
       redirect_to users_path
     else
       render :new

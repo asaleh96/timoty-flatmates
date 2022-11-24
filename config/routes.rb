@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: %i[index show new create edit update destroy] do
+    resources :request, only: %i[new create]
+  end
 
-  resources :users, only: %i[index show new create edit update destroy]
   get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
-
   root to: "pages#home"
   resources :households, only: %i[index show new create edit update destroy] do
     resources :tasks, only: %i[index show new create edit update destroy]

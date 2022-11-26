@@ -25,5 +25,4 @@ class TaskPolicy < ApplicationPolicy
   def destroy?
     true
   end
-
 end

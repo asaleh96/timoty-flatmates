@@ -1,112 +1,140 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/11734954/pexels-photo-11734954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
-  <div class="container">
-    <h1>Stop <strong>debates</strong> between <strong>flatmates</strong>!</h1>
-    <p>Turn your boring household chores into a game with Timoty.</p>
-    <a class="btn btn-main" href="#">Get started</a>
-  </div>
-</div>
+ <!-- Banner -->
 
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/11734954/pexels-photo-11734954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
+      <div class="container">
+        <h1>Stop <strong>debates</strong> between <strong>flatmates</strong>!</h1>
+        <p>Turn your boring household chores into a game with Timoty.</p>
+        <%= link_to 'Get started', new_user_registration_path, class: 'btn-main btn' %>
+      </div>
+    </div>
+
+ <!-- Something about Timoty -->
+
+    <div style='padding: 10px 0; display: inline block;' class='text-right items-end'>
+      <div class='d-flex justfiy-content-between align-items-center items-end'>
+          <%= image_tag ("Mockup1.png") %>
+            <div class='text-align: right'>
+            <h2 class="text-right", style='color: #2a2e30; text-align: right; padding: 30px 0px 0 20px; font-size: 32px; font-weight: bold;'><b>A <span style='color:#f3703f;'> simple </span>solution for your household problems</b></h2>
+            <p class="text-right" style='font-size: 20px; opacity: .7; padding: 10px 0 20px';>Split household chores equally, increase accountability and get rewarded for your hard work!</p>
+              <div class='text-right' style='text-align: center; border: 2px solid #f3703f; margin: 10px auto; width: 10%;'>
+              </div>
+            </div>
+      </div>
+    </div>
 
   <!-- How it works -->
 
-  <div class="container" style='padding: 30px 100px'>
-    <h2 class="text-center", style='padding: 30px 100px; text-shadow: 1px 1px 3px rgb(0 0 0 / 20%); font-size: 32px; font-weight: bold;'><b>How it works</b></h2>
+    <div style='background-color: #d4edf4;'>
+      <div class="container" style='padding: 30px 100px'>
+            <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Only a few, <span style='color:#01a5e2;'> easy </span>steps to get you started</b></h2>
+                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Setting up your household will only take a few minutes.</p>
+            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+            </div>
 
-    <div class="cards">
+            <div class="home-cards">
 
-      <div class="card">
-        <%= image_tag ("accont.svg") %>
-        <h4>Sign up for Free</h4>
-        <p>Set up your profile and your first household.</p>
-      </div>
+                <div class="card">
+                  <%= image_tag ("accont.svg"), style: 'height: 50%' %>
+                  <h4 style='font-weight: bold; padding: 5px 0;'>Sign up for Free</h4>
+                  <p> Set up your profile, create a household and invite your flatmates to join. You are now officially a Timoty Captain!</p>
+                </div>
 
-      <div class="card">
-      <%= image_tag ("home.svg") %>
-        <h4>Choose the rules of the game</h4>
-        <p>Define tasks, points the rules of your competition.</p>
-      </div>
+                <div class="card">
+                <%= image_tag ("home.svg"), style: 'height: 50%' %>
+                  <h4 style='font-weight: bold; padding: 5px 0;'>Choose the rules of the game</h4>
+                  <p>Define the rules of your competition, create new tasks and assign them to your flatmates. You're in charge now! </p>
+                </div>
 
-      <div class="card">
-        <%= image_tag ("cup.svg") %>
-        <h4>Start the game!</h4>
-        <p>Complete your tasks to earn points and win! </p>
-      </div>
+                <div class="card">
+                  <%= image_tag ("cup.svg"), style: 'height: 50%' %>
+                  <h4 style='font-weight: bold; padding: 5px 0;'>Start the game!</h4>
+                  <p>Complete your tasks to earn points, get extra points for speed or do something nice for your flatmates to get tips. Anything to win! </p>
+                </div>
 
+            </div>
+        </div>
     </div>
+
+
+
+  <!-- Testimonials -->
+    <div class="container-lg" style='padding: 30px 100px 10px'>
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Hear from other <span style='color:#f3703f;'> captains </span></b></h2>
+            <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Timoty has helped over 200 households worldwide. Let's hear what other users have to say about it! </p>
+              <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
+              </div>
+
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" style='padding: 30px 100px; margin: 20px 0';>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="testimonial-wrapper">
+                        <div class="testimonial">Timoty helped us keep track of house chores while turning it into a fun competition.</div>
+                        <div class="media">
+                          <%= image_tag ("woman") %>
+                          <div class="media-body">
+                            <div class="overview">
+                              <div class="name"><b>Paula Wilson</b>
+                              </div>
+                              <div class="star-rating">
+                                <ul class="list-inline">
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="testimonial-wrapper">
+                        <div class="testimonial">Timoty is a great choice for any family fighting over chores. 10/10! </div>
+                        <div class="media">
+                          <%= image_tag ("man") %>
+                          <div class="media-body">
+                            <div class="overview">
+                              <div class="name"><b>Antonio Moreno</b>
+                              </div>
+                              <div class="star-rating">
+                                <ul class="list-inline">
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                  <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+  <div style='padding: 0 0 40px 0; display: inline block; width: 100%;' class=''>
+      <div class='align-items-center', style='text-align: center'>
+ <div class='text-center' style='text-align: center; border: 2px solid #01a5e2; margin: 10px auto; width: 10%;'>
+        </div>
+        <h2 class="text-center", style='color: #2a2e30; text-align: center; padding: 30px 20px 30px 20px; font-size: 32px; font-weight: bold;'><b> <span style='color:#01a5e2;'> Questions? </span>Get in touch!</b></h2>
+        <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';><i class="fa-solid fa-location-dot"></i> 201 Boulevard de Normandie, Paris</p>
+        <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px 20px 20px';><i class="fa-solid fa-envelope"></i> info@timotyflatmates.com </p>
+        <button class="btn-main align-items-center">Call Us</button>
+
+      </div>
+
   </div>
-
-<div class="container-lg">
-	<div class="row">
-		<div class="col-sm-12">
-			<h2 style='padding: 10px 100px; text-shadow: 1px 1px 3px rgb(0 0 0 / 20%); font-size: 32px; font-weight: bold;'> <b>Testimonials</b></h2>
-			<div id="myCarousel" class="carousel slide" data-ride="carousel" style='padding: 30px 100px; margin: 20px 0';>
-
-				<!-- Wrapper for carousel items -->
-				<div class="carousel-inner" style='padding: 30px 10px'>
-					<div class="carousel-item active">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="testimonial-wrapper">
-									<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante, commodo iacul viverra.</div>
-									<div class="media">
-										<%= image_tag ("woman") %>
-										<div class="media-body">
-											<div class="overview">
-												<div class="name"><b>Paula Wilson</b></div>
-												<div class="star-rating">
-													<ul class="list-inline">
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="testimonial-wrapper">
-									<div class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget mi suscipit tincidunt. Utmtc tempus dictum. Pellentesque virra. Quis quam ut magna consequat faucibus, metus id mi gravida.</div>
-									<div class="media">
-										<%= image_tag ("man") %>
-										<div class="media-body">
-											<div class="overview">
-												<div class="name"><b>Antonio Moreno</b></div>
-												<div class="star-rating">
-													<ul class="list-inline">
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star"></i></li>
-														<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-
-
-
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
- <div class="container" style='padding: 30px 100px'>
-    <h2 class="text-center", style='padding: 30px 100px; text-shadow: 1px 1px 3px rgb(0 0 0 / 20%); font-size: 32px; font-weight: bold;'><b>Questions? Contact Us!</b></h2>
-    <p> add some contact info here, maybe a contact form and a map? </p>

@@ -1,23 +1,37 @@
 
-    <div class="container", style='width: 70%; margin: 20px auto;'>
-        <h1> Welcome, <%= @user.username %>!</h1>
 
-          <% if @user.photo.attached? %>
-            <%= cl_image_tag @user.photo.key, class: 'rounded-circle', height: 150, width: 150, crop: :fill, gravity: "auto", radius: "max" %>
-          <% else %>
-            <%= image_tag 'user-placeholder.png', class: 'rounded-circle', style: 'width: 150px', id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
 
-          <ul>
-            <li> <i class="fa-solid fa-gears"></i></i> Status: <%= @user.status %></li>
-            <li> <i class="fa-solid fa-id-card-clip"></i>  Full Name:<%= @user.first_name %> <%= @user.last_name %> </li>
-            <li> <i class="fa-solid fa-envelope"></i> Email: <%= @user.email %> </li>
-            <li> <i class="fa-solid fa-cake-candles"></i> Birthday: <%= @user.birthday_date %> </li>
-          </ul>
 
-        <div style="padding: 20px;">
-          <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'secondary-btn' %>
-          <%= link_to 'Back to My Dashboard', '#', class: 'secondary-btn' %>
-        </div>
+<div class="container", style='width: 50%; padding: 30px; margin: 50px auto; border-radius: 10px; box-shadow: 1px 1px 1px lightgray; border: 1px solid lightgray;'>
+        <div class="profile-card" style='width: 100%; margin: 0;'> <img class="profile-card-img-top" style='width: 100%;' src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80" alt="Card image cap">
+            <div class="profile-card-body little-profile text-center">
+                <div class="pro-img text-center object-center" style='text-align: center;'>
+                <% if @user.photo.attached? %>
+                  <%= cl_image_tag @user.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline', height: 200, width: 200, crop: :fill, gravity: "auto", radius: "max" %>
+                 <% else %>
+                  <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center',  style: 'display: inline;'  %>
+                <% end %></div>
+                <h3>  @<%= @user.username %></h3>
+                <p style='padding: 5px 0'> <%= @user.status %></p>
+                <% if @user == current_user %>
+                    <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
+                <% end %>
+                <div class="row text-center m-t-20">
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">10</h3><strong>Tasks</strong>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light">4</h3><strong>To complete</strong>
+                    </div>
+                    <div class="col-lg-4 col-md-4 m-t-20">
+                        <h3 class="m-b-0 font-light"><%= @user.earned_points %></h3><strong>Total Points</strong>
+                    </div>
+                </div>
+            </div>
 
-    </div>
+
+
+
+</div>
+</div>
+ <div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Back to Dashboard', '#', class: 'secondary-btn' %> </div>

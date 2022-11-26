@@ -7,6 +7,7 @@ class RulesController < ApplicationController
 
   def new
     @rule = Rule.new
+    authorize @rule
   end
 
   def create

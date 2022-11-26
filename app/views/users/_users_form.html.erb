@@ -1,5 +1,4 @@
 
-<div style="width: 50%; margin: 0 auto; padding: 20px 30px; border-radius: 10px;">
 <%= simple_form_for(@user) do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
@@ -11,7 +10,6 @@
   <%= f.input :photo, as: :file %>
 
   <div style="text-align: center;">
-  <%= f.submit class: "btn-flat" %>
+  <%= f.submit class: "btn-main", style: 'background-color: #f3703f' %>
   </div>
 <% end %>
-</div>

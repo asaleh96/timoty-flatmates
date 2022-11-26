@@ -1,0 +1,30 @@
+<div style='background-color: #d4edf4;'>
+      <div class="container" style='padding: 30px 100px'>
+            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Welcome to <span style='color:#01a5e2;'> </span>Timoty!</b></h2>
+                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Choose an option to get started.</p>
+            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+            </div>
+
+            <div class="home-cards" style='justify-content: space-around; padding: 0;'>
+
+                <%= link_to new_household_path do %>
+                <div class="card" style='width: 40%; height: 40%; margin: 0;'>
+                  <%= image_tag ("create_house.svg"), style: 'height: 200px' %>
+                  <h4 style='font-weight: bold; padding: 5px 0;'>Set Up a Household </h4>
+                  <p> I will start a new game, set up the rules and invite my flatmates to join. </p>
+                  <% end %>
+                </div>
+
+
+                <%= link_to user_path(current_user) do %>
+                <div class="card" style='width: 40%; height: 40%; margin: 0;'>
+                  <%= image_tag ("join_house.svg"), style: 'height: 200px' %>
+                  <h4 style='font-weight: bold; padding: 5px 0;'>Join a Household</h4>
+                  <p> Someone else already created a game, and I just want to join. </p>
+                   <% end %>
+                </div>
+
+
+            </div>
+        </div>
+    </div>

@@ -7,16 +7,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # authorize @user
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  # Got rid of Edit & Update, handled by Devise
 
-  def update
+  def welcome
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user)
   end
 
 

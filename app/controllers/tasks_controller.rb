@@ -1,4 +1,11 @@
 class TasksController < ApplicationController
+  #PUNDIT NOTES
+  # index: Everyone (in the household?)
+  # new+create: captain
+  # edit: creator
+  # update: task assignee or creator
+  # destroy: creator?
+
   before_action :set_household, only: %i[new create update edit]
   def index
     @tasks = Task.all
@@ -6,13 +13,16 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    # authorize @task
   end
 
   def create
     @task = Task.new(task_params)
     @task.household_id = @household.id
     @task.creator = current_user
-    @task.assignee = nil
+    @task.assignee = User.all.sample
+    # @task.assignee = current_user
+    # authorize @task
     @task.save!
 
     redirect_to household_tasks_path(@household)
@@ -22,18 +32,22 @@ class TasksController < ApplicationController
 
    def edit
     @task = Task.find(params[:id])
+    authorize @task
    end
 
    def update
     @task = Task.find(params[:id])
     @task.household_id = @household.id
+    # authorize @task
     if @task.update(task_params)
      redirect_to household_tasks_path, status: :see_other, notice: "Successfully updated task"
    end
   end
 
   def destroy
+
     @task = Task.find(params[:id])
+    # authorize @task
     @task.destroy
     redirect_to household_tasks_path
   end

@@ -1,0 +1,8 @@
+ <div class="container" style='padding: 30px 100px'>
+            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>What are the rules of <span style='color:#01a5e2;'> <%= @household.name.capitalize %></span></b>?</h2>
+                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 3/4</p>
+            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+
+  </div>
+
+<%= render "rules/rules_form", household: @household %>

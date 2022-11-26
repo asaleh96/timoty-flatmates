@@ -65,6 +65,13 @@ class HouseholdsController < ApplicationController
     @household = Household.find(params[:id])
   end
 
+  def rules_setup
+    @household = Household.find(params[:id])
+    @rule = Rule.new
+  end
+
+
+
 
   private
 

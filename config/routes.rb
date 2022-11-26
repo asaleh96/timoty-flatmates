@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
   get '/households/:id/configuration', to: 'households#configuration', as: 'configuration'
+  get '/households/:id/rules_setup', to: 'households#rules_setup', as: 'setup'
   get 'welcome', to: 'pages#welcome', as: 'welcome'
 
   root to: "pages#home"

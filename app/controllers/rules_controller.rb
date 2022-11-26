@@ -37,6 +37,8 @@ class RulesController < ApplicationController
     redirect_to household_rules_path
   end
 
+
+
   private
 
   def rules_params

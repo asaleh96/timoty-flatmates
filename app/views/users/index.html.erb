@@ -1,12 +1,16 @@
 
  <div class="container" style='padding: 30px 100px'>
             <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Who are your<span style='color:#f3703f;'> Flatmates</span></b>?</h2>
-                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 2/5</p>
+                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 2/4</p>
             <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
             </div>
 
-<div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Next', configuration_path(current_user.household_id), class: 'btn-main' %> </div>
+<div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Next', setup_path(current_user.household_id), class: 'btn-main' %> </div>
 
+<!-- >
+This button connects to the Household configuration part!
+<div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Next', configuration_path(current_user.household_id), class: 'btn-main' %> </div>
+-->
 
 <div class="container" style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
   <% @users.each do |user| %>

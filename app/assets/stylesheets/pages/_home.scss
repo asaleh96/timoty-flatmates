@@ -8,6 +8,7 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     font-size: 32px;
     font-weight: bold;
+
   }
 
 a {
@@ -32,14 +33,15 @@ a {
 
 .card {
   width: 300px;
-  border-radius: 3px;
-  box-shadow: 0 0 5px #01a5e2;
+  border-radius: 5px;
+  box-shadow: 0 0 5px lightgray;
   text-align: center;
   padding: 20px;
-  border: 1px solid #01a5e2;
+  border: none;
+
 }
 
-.cards {
+.home-cards {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;

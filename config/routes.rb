@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
+  get '/users/:id/welcome', to: 'users#welcome', as: 'welcome'
+
   root to: "pages#home"
   resources :households, only: %i[index show new create edit update destroy] do
     resources :tasks, only: %i[index show new create edit update destroy]

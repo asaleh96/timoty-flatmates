@@ -31,6 +31,10 @@ a {
   opacity: .5;
 }
 
+.card p:hover {
+  text-decoration: none;
+}
+
 .card {
   width: 300px;
   border-radius: 5px;
@@ -38,8 +42,16 @@ a {
   text-align: center;
   padding: 20px;
   border: none;
-
 }
+
+.card a {
+  text-decoration: none;
+}
+
+.card:hover {
+  text-decoration: none;
+}
+
 
 .home-cards {
   display: flex;

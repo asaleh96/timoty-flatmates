@@ -61,8 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_183854) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "household_id", null: false
+    t.bigint "user_id"
+    t.bigint "household_id"
     t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

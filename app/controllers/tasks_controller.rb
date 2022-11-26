@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    authorize @task
+    # authorize @task
   end
 
   def create
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     @task.household_id = @household.id
     @task.creator = current_user
     @task.assignee = nil
-    authorize @task
+    # authorize @task
     @task.save!
 
     redirect_to household_tasks_path(@household)
@@ -31,13 +31,13 @@ class TasksController < ApplicationController
 
    def edit
     @task = Task.find(params[:id])
-    authorize @task
+    # authorize @task
    end
 
    def update
     @task = Task.find(params[:id])
     @task.household_id = @household.id
-    authorize @task
+    # authorize @task
     if @task.update(task_params)
      redirect_to household_tasks_path, status: :see_other, notice: "Successfully updated task"
    end

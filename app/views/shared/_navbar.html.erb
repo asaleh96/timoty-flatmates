@@ -19,7 +19,7 @@
             <%= link_to "About Timoty", '#', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My Dashboard", '#', class: "nav-link" %>
+            <%= link_to "My Dashboard", household_dashboard_path(current_user.household_id), class: "nav-link" %>
           </li>
 
 

@@ -15,7 +15,10 @@ class HouseholdsController < ApplicationController
 
   def show
     # authorize @household
+    @household = Household.find(params[:id])
+
   end
+
 
   def new
     @household = Household.new
@@ -58,16 +61,11 @@ class HouseholdsController < ApplicationController
   end
 
   def dashboard
-    @household = Household.find(params[:id])
+    @household = Household.find(params[:household_id])
   end
 
   def configuration
     @household = Household.find(params[:id])
-  end
-
-  def rules_setup
-    @household = Household.find(params[:id])
-    @rule = Rule.new
   end
 
 

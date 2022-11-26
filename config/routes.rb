@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     resources :requests, only: %i[new create]
   end
 
-  get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
   get '/households/:id/configuration', to: 'households#configuration', as: 'configuration'
-  get '/households/:id/rules_setup', to: 'households#rules_setup', as: 'setup'
   get 'welcome', to: 'pages#welcome', as: 'welcome'
 
   root to: "pages#home"
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[index show new create edit update destroy]
     resources :rules, only: %i[index new create edit update destroy]
     patch '/tasks/:id/update', to: 'tasks#update', as: 'updated_task'
+    get '/dashboard', to: 'households#dashboard', as: 'dashboard'
 
   end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
+  get '/households/:id/configuration', to: 'households#configuration', as: 'configuration'
   get 'welcome', to: 'pages#welcome', as: 'welcome'
 
   root to: "pages#home"

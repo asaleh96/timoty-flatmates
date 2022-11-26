@@ -61,6 +61,10 @@ class HouseholdsController < ApplicationController
     @household = Household.find(params[:id])
   end
 
+  def configuration
+    @household = Household.find(params[:id])
+  end
+
 
   private
 

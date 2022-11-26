@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @request = Request.new
   end
 
   def show
@@ -12,11 +13,10 @@ class UsersController < ApplicationController
   # Got rid of Edit & Update, handled by Devise
 
 
-
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :birthday_date)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :password, :birthday_date, :photo, :status)
   end
 
   def set_user

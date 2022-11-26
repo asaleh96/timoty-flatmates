@@ -30,6 +30,7 @@ class HouseholdsController < ApplicationController
     authorize @household
 
     if @household.save
+      current_user.update(household_id: @household.id)
       redirect_to users_path
     else
       render :new
@@ -55,6 +56,11 @@ class HouseholdsController < ApplicationController
   def users
     @users = User.all
   end
+
+  def dashboard
+    @household = Household.find(params[:id])
+  end
+
 
   private
 

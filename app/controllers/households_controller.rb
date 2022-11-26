@@ -1,22 +1,34 @@
 class HouseholdsController < ApplicationController
+  before_action :set_household, only: [:show, :edit, :update, :destroy]
 
+  # As a user, I can only see my Household
+  # As a captain, I can create an Household (OK) > View Needed
+  # As a captain, I can update an Household
+  # As a captain, I can delete an Household
+
+  # Not sure about this Index method ?
+
+  # Make sure the HOUSEHOLD/INDEX is not accessible
   def index
-    @households = Household.all
+    @households = policy_scope(Household)
   end
 
   def show
-    @household = Household.find(params[:id])
+    authorize @household
   end
 
   def new
     @household = Household.new
+    authorize @household
   end
 
   def create
-    params = household_params
-    params[:captain_id] = current_user.id
-    @household = Household.new(params)
-    @household.save!
+    @household = Household.new(household_params)
+    @household.captain = current_user
+    current_user.is_captain = true
+    current_user.save!
+    authorize @household
+
     if @household.save
       current_user.update(household_id: @household.id)
       redirect_to users_path
@@ -26,17 +38,17 @@ class HouseholdsController < ApplicationController
   end
 
   def edit
-    @household = Household.find(params[:id])
+    authorize @household
   end
 
   def update
-    @household = Household.find(params[:id])
+    authorize @household
     @household.update(household_params)
     redirect_to household_path(@household)
   end
 
   def destroy
-    @household = Household.find(params[:id])
+    authorize @household
     @household.destroy
     redirect_to households_path
   end
@@ -56,5 +68,8 @@ class HouseholdsController < ApplicationController
     params.require(:household).permit(:name, :captain_id)
   end
 
-
+  def set_household
+    @household = Household.find(params[:id])
+    authorize @household
+  end
 end

@@ -61,8 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_183854) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "household_id", null: false
+    t.bigint "user_id"
+    t.bigint "household_id"
     t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -110,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_183854) do
     t.date "birthday_date"
     t.text "status"
     t.bigint "household_id"
+    t.boolean "is_captain", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["household_id"], name: "index_users_on_household_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

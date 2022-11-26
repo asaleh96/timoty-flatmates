@@ -14,7 +14,7 @@
                 <h3>  @<%= @user.username %></h3>
                 <p style='padding: 5px 0'> <%= @user.status %></p>
                 <% if @user == current_user %>
-                    <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_path(current_user), class: 'btn-main' %> </div>
+                    <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
                 <% end %>
                 <div class="row text-center m-t-20">
                     <div class="col-lg-4 col-md-4 m-t-20">

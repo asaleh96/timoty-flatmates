@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 
   # Got rid of Edit & Update, handled by Devise
 
+  def welcome
+    @user = User.find(params[:id])
+  end
+
 
   private
 

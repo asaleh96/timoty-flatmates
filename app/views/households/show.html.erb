@@ -1,13 +1,1 @@
 <h1> Your household is <%= @household.name %> </h1>
-
-<% if policy(@household).show?%>
-  <%= "As a user and a Captain, I should be able to the this 'Best household'" %>
-<% end %>
-
-
-<% if policy(@household).edit? %>
-  <%= link_to "Edit this Household", edit_restaurant_path(@household) %> |
-<% end %>
-
-<!-- [...] -->
-<%= button_to "Destroy this household", @household, method: :delete if policy(@household).destroy? %

@@ -10,16 +10,16 @@ class HouseholdsController < ApplicationController
 
   # Make sure the HOUSEHOLD/INDEX is not accessible
   def index
-    @households = policy_scope(Household)
+   @households = Household.all # = policy_scope(Household)
   end
 
   def show
-    authorize @household
+    # authorize @household
   end
 
   def new
     @household = Household.new
-    authorize @household
+   # authorize @household
   end
 
   def create
@@ -27,7 +27,7 @@ class HouseholdsController < ApplicationController
     @household.captain = current_user
     current_user.is_captain = true
     current_user.save!
-    authorize @household
+    # authorize @household
 
     if @household.save
       current_user.update(household_id: @household.id)
@@ -38,17 +38,17 @@ class HouseholdsController < ApplicationController
   end
 
   def edit
-    authorize @household
+    #vauthorize @household
   end
 
   def update
-    authorize @household
+   # authorize @household
     @household.update(household_params)
     redirect_to household_path(@household)
   end
 
   def destroy
-    authorize @household
+   # authorize @household
     @household.destroy
     redirect_to households_path
   end
@@ -70,6 +70,6 @@ class HouseholdsController < ApplicationController
 
   def set_household
     @household = Household.find(params[:id])
-    authorize @household
+   # authorize @household
   end
 end

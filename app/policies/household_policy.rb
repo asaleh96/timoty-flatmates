@@ -1,12 +1,12 @@
 class HouseholdPolicy < ApplicationPolicy
-  class Scope < Scope
+ # class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    def resolve
+   # def resolve
       # be all members who can see households
       # scope.where(captain: user)
-      scope.all
-    end
-  end
+    #  scope.all
+   # end
+  #end
 
     def create?
       true

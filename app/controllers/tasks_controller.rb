@@ -20,7 +20,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.household_id = @household.id
     @task.creator = current_user
-    @task.assignee = nil
+    @task.assignee = User.all.sample
+    # @task.assignee = current_user
     # authorize @task
     @task.save!
 
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
   def destroy
 
     @task = Task.find(params[:id])
-    authorize @task
+    # authorize @task
     @task.destroy
     redirect_to household_tasks_path
   end

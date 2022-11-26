@@ -10,4 +10,25 @@ class RequestsController < ApplicationController
     @request.save
     redirect_to user_path(User.find(params[:user_id]))
   end
+
+  def index
+    @user = User.find(params[:user_id])
+    @requests = Request.where(user_id: params[:user_id], accepted: false || nil)
+  end
+
+  def edit
+    @request = Request.find(params[:id])
+  end
+
+  def update
+    @request = Request.find(params[:id])
+    @request.update(request_params)
+    @user = User.find(@request.user_id)
+    @user.update(household_id: @request.household_id)
+    redirect_to user_path(User.find(params[:user_id]))
+  end
+
+  def request_params
+    params.require(:request).permit(:accepted)
+  end
 end

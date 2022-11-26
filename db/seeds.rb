@@ -1,32 +1,52 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
+puts "Droping all previous data : househould + user"
 Household.destroy_all
 User.destroy_all
 
-User.create(
-  email: "shahid@gmail.com",
-  password: "123456",
-  first_name: "Shahid",
-  last_name: "Farooq",
-  username: "shahid101",
-  birthday_date: "1999-01-06"
-)
+# 1. Create! a User (to be Captain) Captain = User.create (fake data) + is_captain = 1
 
-10.times do
+2.times do |i|
+  puts "*"
+  puts "Creating number ##{i+1} User"
+  user = User.create!(
+    email: "hello#{i+1}@gmail.com",
+    password: "123456",
+    is_captain: 1
+  )
+  puts "User with ID:#{user.id} created, is captain: #{user.is_captain?}"
+
+  # 2. Create! a Household + assign Captain to Household (L. 30)
+  user = User.last
+
+  puts "Creating number ##{i+1} Household"
+  household = Household.create!(
+    name: "Household#{i+1}",
+    captain: user
+  )
+  user.household_id = household.id
+  user.save!
+
+  puts "Household #{household.id} created"
+  puts "______________________________"
+end
+households = Household.all
+
+
+# 3. Creating 6 Users
+
+puts "Creating 6 fake users for Household 1"
+
+6.times do |i|
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  User.create(
-    email: "#{first_name}.#{last_name}@gmail.com",
+  user = User.new(
+    email: "user#{i}@gmail.com",
     password: "123456",
-    first_name:,
-    last_name:,
-    username: first_name + rand(1..100).to_s,
+    first_name: first_name,
+    last_name: last_name,
+    username: "user#{i}",
     birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65)
   )
+  user.household_id = households[i.even? ? 0 : 1].id
+  user.save!
+  #puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
 end

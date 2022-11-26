@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'}
   # devise_for :users
-  resources :users, only: %i[index show] do
-    resources :requests, only: %i[new create]
+  resources :users, only: %i[index show new create edit update destroy] do
+    resources :requests, only: %i[index show new create edit update destroy]
   end
 
   get '/households/:id/configuration', to: 'households#configuration', as: 'configuration'

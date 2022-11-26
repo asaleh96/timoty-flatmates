@@ -19,7 +19,13 @@
             <%= link_to "About Timoty", '#', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My Dashboard", household_dashboard_path(current_user.household_id), class: "nav-link" %>
+            <% @user = User.find(current_user.id) %>
+            <%= link_to "My Requests", user_requests_path(@user), class: "nav-link" %>
+          </li>
+          <li class="nav-item"> <%= link_to "My Dashboard", household_dashboard_path(current_user.household_id), class: "nav-link" %> </li>
+
+          <li class="nav-item active">
+          <p class='nav-link'> Welcome, <%= current_user.username %>! </p>
           </li>
 
 

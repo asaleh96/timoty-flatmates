@@ -17,6 +17,10 @@
           <li class="nav-item">
             <%= link_to "My Dashboard", '#', class: "nav-link" %>
           </li>
+          <li class="nav-item">
+            <% @user = User.find(current_user.id) %>
+            <%= link_to "My Requests", user_requests_path(@user), class: "nav-link" %>
+          </li>
           <li class="nav-item active">
           <p class='nav-link'> Welcome, <%= current_user.username %>! </p>
           </li>

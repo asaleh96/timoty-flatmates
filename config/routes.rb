@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users, only: %i[index show new create edit update destroy] do
-    resources :requests, only: %i[new create]
+    resources :requests, only: %i[index show new create edit update destroy]
   end
 
   get '/households/:id/dashboard', to: 'households#dashboard', as: 'dashboard'
@@ -10,6 +10,5 @@ Rails.application.routes.draw do
     resources :tasks, only: %i[index show new create edit update destroy]
     resources :rules, only: %i[index new create edit update destroy]
     patch '/tasks/:id/update', to: 'tasks#update', as: 'updated_task'
-
   end
 end

@@ -7,7 +7,6 @@ class RulesController < ApplicationController
 
   def new
     @rule = Rule.new
-    authorize @rule
   end
 
   def create
@@ -36,6 +35,8 @@ class RulesController < ApplicationController
     @rule.destroy
     redirect_to household_rules_path
   end
+
+
 
   private
 

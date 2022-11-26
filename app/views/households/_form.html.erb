@@ -1,8 +1,8 @@
-<div style="width: 60%; margin: 20px auto;">
+<div style="width: 60%; min-height: 100vh; margin: 20px auto;">
 <%= simple_form_for(@household) do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, data: { placeholder: 'Enter a name...'}  %>
   <div style="text-align: center;">
-    <%= f.submit class: "btn-main" %>
+    <%= f.submit class: "btn-main", style: 'background-color: #f3703f' %>
   </div>
 <% end %>
 </div>

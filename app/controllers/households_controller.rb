@@ -62,6 +62,7 @@ class HouseholdsController < ApplicationController
 
   def dashboard
     @household = Household.find(params[:household_id])
+
   end
 
   def configuration

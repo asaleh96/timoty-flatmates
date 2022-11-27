@@ -13,7 +13,6 @@
 
 <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
 
-
             <div class="row">
 
                 <div class="col-lg-10 mx-auto">
@@ -64,7 +63,15 @@
    </div>
   <div data-tabs-target="tab" id="two">
   <ul>
-  Tasks are coming soon - Household-user-task connection needs to be implemented first!
+   <div class="grid gap-4">
+    <% @tasks.each do |task| %>
+      <%= render 'tasks/task', task: task %>
+    <% end %>
+  </div>
+</div>
+
+ <script src="main.js"></script>
+
 </ul>
   </div>
   <div data-tabs-target="tab" id="abc">

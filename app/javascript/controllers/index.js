@@ -4,14 +4,15 @@
 
 import { application } from "./application"
 
+
 import EditTaskController from "./edit_task_controller"
 application.register("edit-task", EditTaskController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import InsertInListController from "./insert_in_list_controller"
-application.register("insert-in-list", InsertInListController)
-
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)
+
+import DisableButtonController from "./disable_button_controller"
+application.register("disable", DisableButtonController)

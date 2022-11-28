@@ -1,6 +1,7 @@
-<div class='tabs-div'>
+<div class='tabs-div' style='min-height: 100vh'>
 <h1 style='padding: 10px, text-shadow: 1px 1px 3px rgba(0,0,0,0.2); font-size: 32px; font-weight: bold'> <%= current_user.username.capitalize%>'s Dashboard</h1>
 <div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
+
 
   <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 20px;'>Rules <i class="fa-solid fa-house-user"></i></button>
   <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active' style='font-size: 20px;'>Tasks <i class="fa-solid fa-list-check"></i></button>
@@ -13,8 +14,10 @@
 
 <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
 
-
             <div class="row">
+
+
+
 
                 <div class="col-lg-10 mx-auto">
                     <div class="career-search mb-60">
@@ -64,7 +67,14 @@
    </div>
   <div data-tabs-target="tab" id="two">
   <ul>
-  Tasks are coming soon - Household-user-task connection needs to be implemented first!
+
+   <% @tasks.each do |task| %>
+   <div style='margin: 10px'>
+      <%= render 'tasks/task', task: task %>
+      </div>
+    <% end %>
+
+
 </ul>
   </div>
   <div data-tabs-target="tab" id="abc">

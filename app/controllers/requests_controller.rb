@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
     @request.user_id = params[:user_id]
     @request.household_id = current_user.household_id
     @request.save
-    redirect_to user_path(User.find(params[:user_id]))
+    #redirect_to user_path(User.find(params[:user_id]))
   end
 
   def index
@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
     @request.update(request_params)
     @user = User.find(@request.user_id)
     @user.update(household_id: @request.household_id)
-    redirect_to user_path(User.find(params[:user_id]))
+    # redirect_to user_path(User.find(params[:user_id]))
   end
 
   def request_params

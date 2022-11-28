@@ -1,7 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  connect() {
-    this.element.textContent = "Hello World!"
-  }
+  static targets = ["button", "link"]
+
+
+    disable() {
+      this.buttonTarget.innerText = "Request Sent!"
+      this.buttonTarget.setAttribute("disabled", "")
+      this.linkTarget.classList.remove("d-none")
+    }
 }

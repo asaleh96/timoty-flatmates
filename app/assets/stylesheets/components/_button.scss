@@ -14,6 +14,21 @@
   color: white;
 }
 
+.btn-main-blue {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-color: #01a5e2;
+  text-decoration: none;
+  -webkit-background-color: #01a5e2 !important;
+
+}
+
+.btn-main-blue:hover {
+  background: #1abbf5;
+  color: white;
+}
+
 .btn-main a {
   color: white;
   text-decoration: none;
@@ -34,4 +49,8 @@
   opacity: 1;
   color: white;
   text-decoration: none;
+}
+
+.submit-disabled {
+  background-color: darkgray;
 }

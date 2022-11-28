@@ -4,10 +4,11 @@
       <div class="card-body">
         <%= "A request to join #{request.household.name}" %>
       </div>
-      <div class="btn submit-btn" style="border: 1px solid #e6e6e6;">
+      <div class="btn submit-btn"  style="border: 1px solid #e6e6e6;">
         <%= simple_form_for [@user, request] do |f| %>
           <%= f.input :accepted, as: :hidden, input_html: { value: true } %>
           <%= f.submit "Accept Request" %>
+
         <% end %>
       </div>
     </div>

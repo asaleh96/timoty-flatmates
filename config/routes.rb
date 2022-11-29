@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :rules, only: %i[index new create edit update destroy]
     patch '/tasks/:id/update', to: 'tasks#update', as: 'updated_task'
     get '/dashboard', to: 'households#dashboard', as: 'dashboard'
+    get '/confirmation', to: 'households#confirmation', as: 'confirmation'
+
 
   end
 end

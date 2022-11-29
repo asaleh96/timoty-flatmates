@@ -1,0 +1,14 @@
+ <div class="container" style='padding: 30px 100px; width: 80%;'>
+    <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Well<span style='color:#01a5e2;'> Done!</span></b></h2>
+    <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';> <i class="fa-solid fa-unlock"></i> You have unlocked your <span style='color:#01a5e2; font-weight: bold;'>Dashboard</span>, where you will be able to see your household rules, follow the progress on household tasks and check out the Leaderboard. Let the games begin!</p>
+          <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+          </div>
+
+             <div style='text-align: center; margin: 0 auto 50px'> <%= link_to "Show me my Dashboard!",  household_dashboard_path(current_user.household_id), class: 'btn-main' %> </div>
+
+
+
+    <div class="d-flex justify-content-center" style=' width: 40%; height: 40%; margin: 0 auto;'>
+        <%= image_tag ("confirmation.svg"), style: 'height: 300px' %>
+    </div>
+  </div>

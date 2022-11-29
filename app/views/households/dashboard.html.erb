@@ -1,6 +1,10 @@
+
 <div class='tabs-div' style='min-height: 100vh'>
-<h1 style='padding: 10px, text-shadow: 1px 1px 3px rgba(0,0,0,0.2); font-size: 32px; font-weight: bold'> <%= current_user.username.capitalize%>'s Dashboard</h1>
+
+    <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard</span></b></h2>
+    <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';>  Time to get to work!</p>
 <div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
+
 
 
   <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 20px;'>Rules <i class="fa-solid fa-house-user"></i></button>

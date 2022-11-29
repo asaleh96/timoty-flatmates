@@ -69,10 +69,14 @@ class HouseholdsController < ApplicationController
      current_user.earned_points += task.points
     end
   end
+end
+
+  def confirmation
+    @household = Household.find(params[:household_id])
   end
 
   def configuration
-    @household = Household.find(params[:id])
+    @household = Household.find(params[:household_id])
   end
 
 

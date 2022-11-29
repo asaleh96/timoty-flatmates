@@ -53,7 +53,6 @@
                             <% end %>
                           </div>
 
-                        <div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Back to Household', '#', class: 'secondary-btn' %> </div>
                     </div>
 
 
@@ -68,12 +67,21 @@
   <div data-tabs-target="tab" id="two">
   <ul>
 
+<div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
+
+            <div class="row">
+
+
+
+
+                <div class="col-lg-10 mx-auto">
    <% @tasks.each do |task| %>
-   <div style='margin: 10px'>
       <%= render 'tasks/task', task: task %>
-      </div>
     <% end %>
 
+</div>
+</div>
+</div>
 
 </ul>
   </div>
@@ -110,7 +118,6 @@
      <% end %>
 
   </div>
-                          <div style='text-align: center; margin: 10px 0'> <%= link_to 'Back to Household', '#', class: 'secondary-btn' %> </div>
 
 </ul>
   </div>

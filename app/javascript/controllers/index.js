@@ -13,6 +13,3 @@ application.register("hello", HelloController)
 
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)
-
-import DisableButtonController from "./disable_button_controller"
-application.register("disable", DisableButtonController)

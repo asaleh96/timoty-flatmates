@@ -1,4 +1,4 @@
-class RequestsController < ApplicationController
+class HouseholdUserRequestsController < ApplicationController
   def new
     @request = Request.new
   end

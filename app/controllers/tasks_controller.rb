@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.household_id = @household.id
     @task.creator = current_user
-    @task.assignee = User.all.sample
+    @task.assignee = current_user
     # @task.assignee = current_user
     # authorize @task
     @task.save!
@@ -28,20 +28,21 @@ class TasksController < ApplicationController
     redirect_to household_tasks_path(@household)
   end
 
-   # PATCH /tasks/:id
+  # PATCH /tasks/:id
 
-   def edit
+  def edit
     @task = Task.find(params[:id])
     # authorize @task
-   end
+  end
 
-   def update
+  def update
     @task = Task.find(params[:id])
     @task.household_id = @household.id
     # authorize @task
     if @task.update(task_params)
-     redirect_to household_tasks_path, status: :see_other, notice: "Successfully updated task"
-   end
+      redirect_to household_tasks_path, status: :see_other, notice: "Successfully updated task"
+      point_calculation
+    end
   end
 
   def destroy
@@ -54,6 +55,14 @@ class TasksController < ApplicationController
 
 
   private
+
+  def point_calculation
+    @household.users.each do |user|
+      user.earned_points = 0
+      user.earned_points += Task.where(done: true, assignee: user).sum(:points)
+      user.save
+    end
+  end
 
   def task_params
     params.require(:task).permit(:name, :description, :due_date, :points, :done)

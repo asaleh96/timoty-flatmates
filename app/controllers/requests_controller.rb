@@ -4,7 +4,6 @@ class RequestsController < ApplicationController
   end
 
   def create
-    raise
     @request = Request.new
     @request.user_id = params[:user_id]
     @request.household_id = current_user.household_id

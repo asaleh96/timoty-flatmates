@@ -33,8 +33,8 @@ This button connects to the Household configuration part!
       </div>
 
 
-      <div class="col pt-1" data-controller="hello">
-          <button class="btn btn-main-blue" data-action="click->hello#disable" data-hello-target="button">
+      <div class="col pt-1">
+          <button class="btn btn-main-blue">
             <%= simple_form_for [user, @request] do |f| %>
               <%= f.submit "Submit Request", id: 'clickme', class: '' %>
             <% end %>

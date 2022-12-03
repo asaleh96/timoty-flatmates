@@ -14,7 +14,7 @@
             <% if current_user.household_id.nil?%>
             <%= link_to 'Get started', welcome_path, class: 'btn-main btn' %>
             <% else %>
-            <%= link_to 'Checkout My Household', household_path(current_user), class: 'btn-main btn' %>
+            <%= link_to 'Checkout My Household', household_dashboard_path(current_user.household), class: 'btn-main btn' %>
             <% end %>
         <% else %>
             <%= link_to 'Get started', new_user_registration_path, class: 'btn-main btn' %>

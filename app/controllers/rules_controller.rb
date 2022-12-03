@@ -1,8 +1,8 @@
 class RulesController < ApplicationController
-  before_action :set_household, only: %i[new create edit update]
+  before_action :set_household, only: %i[index new create edit update]
 
   def index
-    @rules = Rule.all
+    @rules = Rule.where(household_id: @household.id)
   end
 
   def new
@@ -17,7 +17,6 @@ class RulesController < ApplicationController
     redirect_to household_rules_path
   end
 
-
   def edit
     @rule = Rule.find(params[:id])
   end
@@ -29,14 +28,11 @@ class RulesController < ApplicationController
     redirect_to household_rules_path
   end
 
-
   def destroy
     @rule = Rule.find(params[:id])
     @rule.destroy
     redirect_to household_rules_path
   end
-
-
 
   private
 
@@ -45,11 +41,10 @@ class RulesController < ApplicationController
   end
 
   def set_rule
-   @rule = Rule.find(params[:id])
+    @rule = Rule.find(params[:id])
   end
 
   def set_household
     @household = Household.find(params[:household_id])
   end
-
 end

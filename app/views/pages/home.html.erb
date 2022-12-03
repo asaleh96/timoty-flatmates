@@ -5,7 +5,21 @@
       <div class="container">
         <h1>Stop <strong>debates</strong> between <strong>flatmates</strong>!</h1>
         <p>Turn your boring household chores into a game with Timoty.</p>
-        <%= link_to 'Get started', new_user_registration_path, class: 'btn-main btn' %>
+        <!-- IF THE USER IS NOT LOGGED WE WANT A SIGN UP OR LOG IN -->
+        <!-- ELSE "THE USER IS LOGGED IN && HOUSEHOLD ID != nill -->
+          <!-- OPTION 1 "THE USER AS AN HOUSEHOLD ID >> GOT TO : household dash board -->
+        <!-- ELSIF "THE USER IS LOGGED IN && AS NOT AN HOUSEHOLD YET >> -->
+        <!-- END -->
+        <% if user_signed_in? %>
+            <% if current_user.household_id.nil?%>
+            <%= link_to 'Get started', welcome_path, class: 'btn-main btn' %>
+            <% else %>
+            <%= link_to 'Checkout My Household', household_path(current_user), class: 'btn-main btn' %>
+            <% end %>
+        <% else %>
+            <%= link_to 'Get started', new_user_registration_path, class: 'btn-main btn' %>
+        <% end %>
+
       </div>
     </div>
 

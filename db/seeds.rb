@@ -6,26 +6,30 @@ User.destroy_all
 
 2.times do |i|
   puts "*"
+  # 1. Create! a Household + assign Captain to Household (L. 30)
+
   puts "Creating number ##{i+1} User"
   user = User.create!(
     email: "hello#{i+1}@gmail.com",
+    first_name: "John#{i+1}",
+    last_name: "Dupon#{i+1}",
     password: "123456",
     is_captain: 1
   )
   puts "User with ID:#{user.id} created, is captain: #{user.is_captain?}"
 
-  # 2. Create! a Household + assign Captain to Household (L. 30)
-  user = User.last
-
   puts "Creating number ##{i+1} Household"
+
   household = Household.create!(
     name: "Household#{i+1}",
     captain: user
   )
-  user.household_id = household.id
-  user.save!
 
-  puts "Household #{household.id} created"
+  user.household = household
+
+  puts "Household #{household.id} created, captain #{household.captain.first_name}"
+
+
   puts "______________________________"
 end
 households = Household.all
@@ -33,7 +37,7 @@ households = Household.all
 
 # 3. Creating 6 Users
 
-puts "Creating 6 fake users for Household 1"
+puts "Creating 6 fake users"
 
 6.times do |i|
   first_name = Faker::Name.first_name
@@ -48,5 +52,5 @@ puts "Creating 6 fake users for Household 1"
   )
   user.household_id = households[i.even? ? 0 : 1].id
   user.save!
-  #puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
+  puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
 end

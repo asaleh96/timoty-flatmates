@@ -26,7 +26,7 @@ class RulesController < ApplicationController
     @rule = Rule.find(params[:id])
     @rule.update(rules_params)
     @rule.household = @household
-    redirect_to household_rules_path
+    redirect_back_or_to household_rules_path
   end
 
 

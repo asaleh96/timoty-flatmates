@@ -2,14 +2,21 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
+import { Application } from "@hotwired/stimulus"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+
+window.Stimulus = Application.start()
+const context = require.context("./controllers", true, /\.js$/)
+Stimulus.load(definitionsFromContext(context))
+
 import { application } from "./application"
 
 
 import EditTaskController from "./edit_task_controller"
 application.register("edit-task", EditTaskController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import AcceptController from "./accept_controller"
+application.register("accept", AcceptController)
 
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)

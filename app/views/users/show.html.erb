@@ -10,10 +10,22 @@
                  <% else %>
                   <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center',  style: 'display: inline;'  %>
                 <% end %></div>
-                <h3>  @<%= @user.username %></h3>
+                <h3> @<%= @user.username %></h3>
+                <h3> <%= @user.first_name %></h3>
+                <h3> Your household is <%= @user.household.name %> </h3>
+                <% if @user.is_captain? %>
+                  <h3> You are the captain! </h3>
+                <% else %>
+                  <h3> Your captain is <%= @user.household.captain %></h3>
+                <% end %>
                 <p style='padding: 5px 0'> <%= @user.status %></p>
                 <% if @user == current_user %>
-                    <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
+                <div>
+                  <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
+                </div>
+                <div>
+                <div style='margin: 10px auto 0'> <%= link_to 'Checkout my household', household_dashboard_path(current_user), class: 'btn-main' %> </div>
+                </div>
                 <% end %>
                 <div class="row text-center m-t-20">
                     <div class="col-lg-4 col-md-4 m-t-20">

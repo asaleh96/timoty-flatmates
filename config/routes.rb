@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
   devise_for :users, controllers: {
     registrations: 'users/registrations'}
-  # devise_for :users
+
   resources :users, only: %i[index show new create edit update destroy] do
     resources :requests, only: %i[index show new create edit update destroy]
   end
@@ -18,8 +18,11 @@ Rails.application.routes.draw do
     patch '/tasks/:id/update', to: 'tasks#update', as: 'updated_task'
     get '/dashboard', to: 'households#dashboard', as: 'dashboard'
     get '/confirmation', to: 'households#confirmation', as: 'confirmation'
+  end
 
-
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   match "/404", to: "errors#not_found", via: :all

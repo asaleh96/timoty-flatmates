@@ -13,7 +13,7 @@ User.destroy_all
     email: "hello#{i+1}@gmail.com",
     first_name: "John#{i+1}",
     last_name: "Dupon#{i+1}",
-    username: "User#{i+1}",
+    username: "Captain#{i+1}",
     password: "123456",
     is_captain: 1
   )

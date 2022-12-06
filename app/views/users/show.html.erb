@@ -12,11 +12,11 @@
                 <% end %></div>
                 <h3> @<%= @user.username %></h3>
                 <h3> <%= @user.first_name %></h3>
-                <h3> Your household is <%= @user.household.name %> </h3>
+                <h3> Your household is: <%= current_user.household.name %> </h3>
                 <% if @user.is_captain? %>
                   <h3> You are the captain! </h3>
                 <% else %>
-                  <h3> Your captain is <%= @user.household.captain %></h3>
+                  <h3> Your captain is <%= current_user.household.captain.username %></h3>
                 <% end %>
                 <p style='padding: 5px 0'> <%= @user.status %></p>
                 <% if @user == current_user %>
@@ -24,7 +24,7 @@
                   <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
                 </div>
                 <div>
-                <div style='margin: 10px auto 0'> <%= link_to 'Checkout my household', household_dashboard_path(current_user), class: 'btn-main' %> </div>
+                <div style='margin: 10px auto 0'> <%= link_to 'Checkout my household', household_dashboard_path(current_user.household), class: 'btn-main' %> </div>
                 </div>
                 <% end %>
                 <div class="row text-center m-t-20">

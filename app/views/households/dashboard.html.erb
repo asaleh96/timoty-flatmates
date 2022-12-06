@@ -89,6 +89,20 @@
 </div>
 
 </ul>
+   </div>
+  <div data-tabs-target="tab" id="three">
+  <ul>
+
+<div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+        <% @household.activities.each do |activity| %>
+            <%= render 'activities/activity', activity: activity %>
+        <% end %>
+  </div>
+</div>
+
+</ul>
   </div>
   <div data-tabs-target="tab" id="abc">
   <ul>

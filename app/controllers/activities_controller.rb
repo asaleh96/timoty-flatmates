@@ -9,8 +9,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activiy.new(activity_params)
     @activity.household_id = @household.id
-    #@activity.creator = current_user
-    #@activity.assignee = current_user
+    @activity.creator = current_user
     @activity.save
     redirect_to household_activities_path(@household)
   end

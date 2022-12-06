@@ -1,0 +1,18 @@
+ <div class="container" style='padding: 30px 100px'>
+            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>What are your<span style='color:#f3703f;'> Tasks</span></b>?</h2>
+                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 4/4</p>
+            <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
+            </div>
+
+  <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Suggest an Activity', new_household_activity_path, class: 'btn-main', style: 'background-color: green' %> </div>
+
+   <div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Complete Setup',  household_confirmation_path(current_user.household_id), class: 'btn-main' %> </div>
+
+
+
+  <div class="grid gap-4">
+    <% @activities.each do |activity| %>
+      <%= render 'activities/activity', activity: activity %>
+    <% end %>
+  </div>
+</div>

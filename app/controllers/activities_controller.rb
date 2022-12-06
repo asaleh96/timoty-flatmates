@@ -8,9 +8,28 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activiy.new(activity_params)
-    @activity.household = @household
+    @activity.household_id = @household.id
+    #@activity.creator = current_user
+    #@activity.assignee = current_user
     @activity.save
-    redirect_to household_path(@household)
+    redirect_to household_activities_path(@household)
+  end
+
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    @activity = Activity.find(params[:id])
+    @activity.update(activity_params)
+    @activity.household = @household
+    redirect_to household_activities_path
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to household_activities_path
   end
 
   private
@@ -19,7 +38,7 @@ class ActivitiesController < ApplicationController
     @household = Household.find(params[:household_id])
   end
 
-  def review_params
+  def activity_params
     params.require(:activity).permit(:content)
   end
 end

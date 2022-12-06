@@ -3,13 +3,9 @@ class ResetGameJob < ApplicationJob
 
   def perform
     # Do something later
-    Household.all.each do |household|
-      User.where(household_id: household.id).each do |user|
-        user.update_attributes(points: 0)
-      end
-      Task.where(household_id: household.id).each do |task|
-        task.destroy
-      end
+    User.all.each do |user|
+      user.update(earned_points: 0)
     end
+    Task.all.each(&:destroy)
   end
 end

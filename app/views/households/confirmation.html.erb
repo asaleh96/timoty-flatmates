@@ -4,7 +4,7 @@
           <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
           </div>
 
-             <div style='text-align: center; margin: 0 auto 50px'> <%= link_to "Show me my Dashboard!",  household_dashboard_path(current_user.household_id), class: 'btn-main' %> </div>
+             <div style='text-align: center; margin: 0 auto 50px'> <%= link_to "Previous",  household_tasks_path(@household), class: 'btn-main' %> <%= link_to "Show me my Dashboard!",  household_dashboard_path(current_user.household_id), class: 'btn-main', style: 'background-color:green;' %> </div>
 
 
 

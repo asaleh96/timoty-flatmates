@@ -1,8 +1,15 @@
 
 <div class='tabs-div' style='min-height: 100vh'>
 
-    <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard</span></b></h2>
+    <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b><% if current_user.is_captain %> Captain <% end %><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard <i class="fa-solid fa-gears"></i></span> </b> </h2>
+
+    <% if current_user.is_captain %>
+        <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';>  Something is not right? Get back to your <%= link_to "setup", household_rules_path, style: 'font-weight: bold; color: skyblue' %>
+
+!</p>
+  <% else %>
     <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';>  Time to get to work!</p>
+    <% end %>
 <div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
 
 
@@ -38,22 +45,14 @@
                                       <div class="job-content">
                                           <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
                                               <li class="mr-md-4">
-                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px'></i><%= rule.name %>
+                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 30px'></i><%= rule.name %>
                                               </li>
 
                                           </ul>
                                       </div>
                                   </div>
 
-                                <div class="job-right my-4 flex-shrink-0">
-                                    <%= link_to edit_household_rule_path(rule.household, rule), class: 'secondary-btn', style: 'margin: 10px 5px' do %>
-                                      <i class="fa-solid fa-pen-to-square"></i>
-                                    <% end %>
-                                    <%= link_to household_rule_path(rule.household, rule), class: 'btn-main', style: 'background-color: red;',
-                                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                                      <i class="fa-solid fa-trash"></i>
-                                    <% end %></p>
-                                </div>
+
                               </div>
                             <% end %>
                           </div>
@@ -81,7 +80,7 @@
 
                 <div class="col-lg-10 mx-auto">
    <% @tasks.each do |task| %>
-      <%= render 'tasks/task', task: task %>
+      <%= render 'dashboard_tasks', task: task %>
     <% end %>
 
 </div>
@@ -96,6 +95,7 @@
 <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
   <div class="row">
     <div class="col-lg-10 mx-auto">
+    <p>Set up an activity to earn extra points!</p>
         <% @household.activities.each do |activity| %>
             <%= render 'activities/activity', activity: activity %>
         <% end %>

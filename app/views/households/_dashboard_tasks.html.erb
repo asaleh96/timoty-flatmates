@@ -1,0 +1,50 @@
+
+
+<%= turbo_frame_tag dom_id(task) do %>
+<% if task.done? %>
+   <div style='green; margin: 10px; border: solid 2px green; background-color: lightgreen; opacity: 0.7; box-shadow: 1px 1px 1px lightgray'>
+   <% else %>
+   <div style='margin: 10px ; box-shadow: 1px 1px 1px lightgray'>
+   <% end %>
+  <div class="border border-slate-300 p-6 rounded bg-white flex items-center" data-controller="edit-task">
+
+    <%= link_to household_updated_task_path(task.household_id, task.id, task: { done: !task.done? }), data: {turbo_method: :patch} do %>
+      <% if task.done? %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id='checkbox'>
+          <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+        </svg>
+
+      <% else %>
+        <div class="h-6 w-6 bg-slate-200 rounded-full"></div>
+      <% end %>
+
+    <% end %>
+
+
+    <div data-edit-task-target="infos"></div>
+        <span class="ml-2"><%= task.name %></span>
+        <% if task.done? %>
+          <span class="ml-2"> <p style='text-weight: bold, font-size: 110%;'> Completed!</span>
+        <% else %>
+        <span class="ml-2">for <%= task.points %> points!</span>
+        <% end %>
+
+    <div class= "ml-auto p-2">
+      <% if !task.assignee.nil? && !task.assignee.first_name.nil? %>
+
+        <span class="ml-2"> <%= task.assignee.username %></span>
+        <span class="ml-2">
+                <% if task.assignee.photo.attached? %>
+                <%= cl_image_tag task.assignee.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline', height: 50, width: 50, crop: :fill, gravity: "auto", radius: "max" %>
+                 <% else %>
+                  <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center', height: 50, width: 50, style: 'display: inline;'  %>
+                <% end %>
+          </span>
+
+      <% end %>
+    </div>
+</div>
+</div>
+
+
+<% end %>

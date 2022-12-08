@@ -13,7 +13,7 @@ User.destroy_all
     email: "hello#{i+1}@gmail.com",
     first_name: "John#{i+1}",
     last_name: "Dupon#{i+1}",
-    username: "User#{i+1}",
+    username: "Captain#{i+1}",
     password: "123456",
     is_captain: 1
   )
@@ -27,6 +27,8 @@ User.destroy_all
   )
 
   user.household = household
+  user.household_id = household.id
+  user.save!
 
   puts "Household #{household.id} created, captain #{household.captain.first_name}"
 
@@ -49,9 +51,40 @@ puts "Creating 6 fake users"
     first_name: first_name,
     last_name: last_name,
     username: "user#{i}",
-    birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65)
+    birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+    earned_points: rand(500..1500)
   )
   user.household_id = households[i.even? ? 0 : 1].id
   user.save!
   puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
 end
+
+# 4. Creating fake tasks
+
+puts "Creating 1 task for each Household"
+
+task1 = Task.new(
+  name: "Clean the kitchen on Wednesday",
+  description: "All clean with garbage out",
+  due_date: "12/31/2022",
+  points: 1000,
+  creator_id: 1,
+  household_id: 1
+)
+task1.save
+
+puts "#{task1.name} has been created!"
+
+task2 = Task.new(
+  name: "Clean the windows on Wednesday",
+  description: "Cristal clear or nothing",
+  due_date: "12/31/2022",
+  points: 1000,
+  creator_id: 2,
+  household_id: 2
+)
+
+task2.save
+puts "#{task2.name} has been created!"
+
+puts "XXXX the end XXXX"

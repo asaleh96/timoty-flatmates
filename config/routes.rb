@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/households/:id/configuration', to: 'households#configuration', as: 'configuration'
   get 'welcome', to: 'pages#welcome', as: 'welcome'
+  get 'about', to: 'pages#about', as: 'about'
+
 
   root to: "pages#home"
   resources :households, only: %i[index show new create edit update destroy] do

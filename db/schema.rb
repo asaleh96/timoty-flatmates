@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_195245) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.text "description"
     t.date "due_date"
     t.integer "points"
     t.index ["household_id"], name: "index_activities_on_household_id"

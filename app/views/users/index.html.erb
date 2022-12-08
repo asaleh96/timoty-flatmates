@@ -5,7 +5,6 @@
             <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
             </div>
 
-<div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Next', household_rules_path(current_user.household_id), class: 'btn-main' %> </div>
 
 <!-- >
 This button connects to the Household configuration part!
@@ -19,11 +18,13 @@ This button connects to the Household configuration part!
     class: "form-control",
     placeholder: "Enter a username"
   %>
-  <button class='btn-main'>
+  <button class='btn-main', style='background-color:green'>
   <%= submit_tag "Search" %>
   </button>
 <% end %>
 </div>
+
+<div style='text-align: center; margin: 30px auto 50px'> <%= link_to 'Previous',  new_household_path, class: 'btn-main' %>  <%= link_to 'Next', household_rules_path(current_user.household_id), class: 'btn-main' %> </div>
 
 
 

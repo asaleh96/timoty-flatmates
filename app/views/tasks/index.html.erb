@@ -6,7 +6,7 @@
 
   <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Add a Task', new_household_task_path, class: 'btn-main', style: 'background-color: green' %> </div>
 
-   <div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Complete Setup',  household_confirmation_path(current_user.household_id), class: 'btn-main' %> </div>
+   <div style='text-align: center; margin: 0 auto 50px'>  <%= link_to 'Previous', household_rules_path(current_user.household_id), class: 'btn-main' %>   <%= link_to 'Complete Setup',  household_confirmation_path(current_user.household_id), class: 'btn-main' %> </div>
 
 
 

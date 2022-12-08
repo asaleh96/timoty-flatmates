@@ -1,10 +1,11 @@
 <div style="width: 60%; min-height: 100vh; margin: 20px auto;">
 <%= simple_form_for(@household) do |f| %>
   <%= f.input :name, data: { placeholder: 'Enter a name...'}  %>
-  <div style="text-align: center;">
 
-    <%= f.submit class: "btn-main", style: 'background-color: #f3703f' %>
+  <div class="form-actions text-center">
+  <button class='btn btn-main' style='padding: 0px'>
+  <%= f.submit class: "btn-main", style: 'background-color: #f3703f',  data: {turbo: false} %>
+  </button>
   </div>
-
 <% end %>
 </div>

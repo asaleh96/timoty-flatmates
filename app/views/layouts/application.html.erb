@@ -12,17 +12,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body style='min-height: 100vh'>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-
-      <div class=''>
-        <%= render "shared/flashes" %>
+  <body>
+    <div class="app">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <main>
         <%= yield %>
-      </div>
-
-
-    <%= render "shared/footer" %>
-
+      </main>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>

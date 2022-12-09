@@ -1,8 +1,8 @@
 
  <!-- Banner -->
 
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/11734954/pexels-photo-11734954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
-      <div class="container align-items-center">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5245944/pexels-photo-5245944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
+      <div class="align-items-center" style='vertical-align: middle; margin: auto 20px;'>
         <h1 class=''>Stop <strong>debates</strong> between <strong>flatmates</strong>!</h1>
         <p>Turn your boring household chores into a game with Timoty.</p>
         <!-- IF THE USER IS NOT LOGGED WE WANT A SIGN UP OR LOG IN -->
@@ -14,7 +14,7 @@
             <% if current_user.household_id.nil?%>
             <%= link_to 'Get started', welcome_path, class: 'btn-main btn' %>
             <% else %>
-            <%= link_to 'Checkout My Household', household_dashboard_path(current_user.household), class: 'btn-main btn' %>
+            <%= link_to 'Check Out My Household', household_dashboard_path(current_user.household), class: 'btn-main btn' %>
             <% end %>
         <% else %>
             <%= link_to 'Get started', new_user_registration_path, class: 'btn-main btn' %>
@@ -25,13 +25,13 @@
 
  <!-- Something about Timoty -->
 
-    <div style='padding: 10px 0; display: inline block; height: 80vh; width: 100%' class='text-center items-end'>
-      <div class='d-flex justfiy-content-between align-items-center items-center'>
-          <%= image_tag ("Mockup1.png") %>
+    <div style='padding: 10px 0; display: inline block; height: 60vh; width: 100%' class='text-center'>
+      <div class='d-flex justfiy-content-between align-items-center' style='vertical-align: middle;'>
+          <%= image_tag ("Mockup1.png"), style: 'padding: 30px 0px 0 30px; height: 58vh;' %>
             <div class='text-align: right'>
-            <h2 class="text-right", style='color: #2a2e30; text-align: right; padding: 30px 0px 0 20px; font-size: 32px; font-weight: bold;'><b>A <span style='color:#f3703f;'> simple </span>solution for your household problems</b></h2>
-            <p class="text-right" style='font-size: 20px; opacity: .7; padding: 10px 0 20px';>Split household chores equally, increase accountability and get rewarded for your hard work!</p>
-              <div class='text-right' style='text-align: center; border: 2px solid #f3703f; margin: 10px auto; width: 10%;'>
+            <h2 class="text-right", style='color: #2a2e30; text-align: right; padding: 30px 0px 0 20px; font-size: 5vh; font-weight: bold;'><b>A <span style='color:#f3703f;'> simple </span>solution for your household problems</b></h2>
+            <p class="text-right" style='font-size: 3vh; opacity: .7; padding: 10px 0 20px';>Split household chores equally, increase accountability and get rewarded for your hard work!</p>
+              <div class='text-right' style='text-align: center; border: 0.3vh solid #f3703f; margin: 10px auto; width: 10%;'>
               </div>
             </div>
       </div>
@@ -39,31 +39,37 @@
 
   <!-- How it works -->
 
-    <div style='background-color: #d4edf4; height: 80vh; width: 100%'>
-      <div class="container" style='padding: 30px 100px'>
-            <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Only a few, <span style='color:#01a5e2;'> easy </span>steps to get you started</b></h2>
-                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Setting up your household will only take a few minutes.</p>
-            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+    <div style='background-color: #d4edf4; height: 80vh; width: 100%; vertical-align: middle; padding: 10px 0;'>
+      <div class="" style='padding: 40px 20px'>
+            <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 5vh; font-weight: bold;'><b>Only a few, <span style='color:#01a5e2;'> easy </span>steps to get you started</b></h2>
+                    <p class="text-center" style='font-size: 3vh; opacity: .7; padding: 10px 20px';>Setting up your household will only take a few minutes.</p>
+            <div class='text-center' style='text-align: center; border: 0.3vh solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
             </div>
 
-            <div class="home-cards">
+            <div class="home-cards" style='padding-top: 2vh'>
 
-                <div class="card">
-                  <%= image_tag ("accont.svg"), style: 'height: 50%' %>
-                  <h4 style='font-weight: bold; padding: 5px 0;'>Sign up for Free</h4>
-                  <p> Set up your profile, create a household and invite your flatmates to join. You are now officially a Timoty Captain!</p>
+                <div class="card" style='width: 50vh; height: 41vh;'>
+                <div style='margin: auto'>
+                  <%= image_tag ("accont.svg"), style: '' %>
+                  <h4 style='font-weight: bold; padding: 5px 0; font-size: 2.5vh;'>Sign up for Free</h4>
+                  <p style='font-size: 2vh;'> Set up your profile, create a household and invite your flatmates to join. You are now officially a Timoty Captain!</p>
+                </div>
                 </div>
 
-                <div class="card">
-                <%= image_tag ("home.svg"), style: 'height: 50%' %>
-                  <h4 style='font-weight: bold; padding: 5px 0;'>Choose the rules of the game</h4>
-                  <p>Define the rules of your competition, create new tasks and assign them to your flatmates. You're in charge now! </p>
+                <div class="card" style='width: 50vh; height: 41vh;'>
+                <div style='margin: auto'>
+                <%= image_tag ("home.svg"), style: '' %>
+                  <h4 style='font-weight: bold; padding: 5px 0; font-size: 2.5vh;'>Choose the rules of the game</h4>
+                  <p style='font-size: 2vh;'>Define the rules of your competition, create new tasks and assign them to your flatmates. You're in charge now! </p>
+                </div>
                 </div>
 
-                <div class="card">
-                  <%= image_tag ("cup.svg"), style: 'height: 50%' %>
-                  <h4 style='font-weight: bold; padding: 5px 0;'>Start the game!</h4>
-                  <p>Complete your tasks to earn points, get extra points for speed or do something nice for your flatmates to get tips. Anything to win! </p>
+                <div class="card" style='width: 50vh; height: 41vh;'>
+                <div style='margin: auto'>
+                  <%= image_tag ("cup.svg"), style: '' %>
+                  <h4 style='font-weight: bold; padding: 5px 0; font-size: 2.5vh;'>Start the game!</h4>
+                  <p style='font-size: 2vh;'>Complete your tasks to earn points, get extra points for speed or do something nice for your flatmates to get tips. Anything to win! </p>
+                </div>
                 </div>
 
             </div>
@@ -73,11 +79,11 @@
 
 
   <!-- Testimonials -->
-    <div class="container-lg" style='padding: 30px 100px 10px; height: 80vh; width: 100%'>
+    <div class="container-lg" style='padding: 30px 100px 10px; height: 80%; width: 100%; vertical-align: middle;'>
       <div class="row">
         <div class="col-sm-12">
-          <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Hear from other <span style='color:#f3703f;'> captains </span></b></h2>
-            <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Timoty has helped over 200 households worldwide. Let's hear what other users have to say about it! </p>
+          <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 5vh; font-weight: bold;'><b>Hear from other <span style='color:#f3703f;'> captains </span></b></h2>
+            <p class="text-center" style='font-size: 2vh; opacity: .7; padding: 10px 20px';>Timoty has helped over 200 households worldwide. Let's hear what other users have to say about it! </p>
               <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
               </div>
 

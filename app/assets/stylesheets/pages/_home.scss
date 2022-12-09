@@ -22,7 +22,7 @@ a {
 // cards
 
 .card img {
-  width: 150px;
+  height: 20vh;
   margin: 0 auto;
   padding: 10px;
 }
@@ -55,7 +55,7 @@ a {
 
 .home-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 30px;
   flex-wrap: wrap;
 }

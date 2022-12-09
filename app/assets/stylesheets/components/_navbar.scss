@@ -1,8 +1,10 @@
 
 .navbar-lewagon {
   justify-content: space-between;
-  position: sticky;
+  position: sticky !important;
   padding: 10px;
+  font-size: 2.1vh;
+  background-color: white;
 
 }
 
@@ -20,6 +22,7 @@
   position: sticky;
   padding: 10px;
   background-color: #d4edf4;
+
 
 }
 

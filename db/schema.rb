@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_195245) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_10_115345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_195245) do
     t.text "description"
     t.date "due_date"
     t.integer "points"
+    t.bigint "user_id", null: false
     t.index ["household_id"], name: "index_activities_on_household_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "households", force: :cascade do |t|
@@ -122,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_195245) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "households"
+  add_foreign_key "activities", "users"
   add_foreign_key "households", "users", column: "captain_id"
   add_foreign_key "requests", "households"
   add_foreign_key "requests", "users"

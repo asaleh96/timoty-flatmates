@@ -68,6 +68,7 @@ task1 = Task.new(
   description: "All clean with garbage out",
   due_date: "12/31/2022",
   points: 1000,
+  assignee_id: 1,
   creator_id: 1,
   household_id: 1
 )
@@ -80,6 +81,7 @@ task2 = Task.new(
   description: "Cristal clear or nothing",
   due_date: "12/31/2022",
   points: 1000,
+  assignee_id: 2,
   creator_id: 2,
   household_id: 2
 )

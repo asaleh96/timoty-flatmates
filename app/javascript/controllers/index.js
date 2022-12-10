@@ -18,5 +18,8 @@ application.register("edit-task", EditTaskController)
 import AcceptController from "./accept_controller"
 application.register("accept", AcceptController)
 
+import InviteController from "./invite_controller"
+application.register("invite", InviteController)
+
 import TabsController from "./tabs_controller"
 application.register("tabs", TabsController)

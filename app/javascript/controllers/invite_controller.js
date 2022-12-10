@@ -11,7 +11,7 @@ export default class extends Controller {
 
     disable() {
       console.log('disable btn working')
-      this.buttonTarget.innerText = "Sent!"
+      this.buttonTarget.innerText = "Request Accepted!"
      // this.buttonTarget.setAttribute("disabled", "")
     }
 
@@ -20,6 +20,7 @@ export default class extends Controller {
     this.buttonTarget.submit()
     this.disable();
   }
+
 
 
 }

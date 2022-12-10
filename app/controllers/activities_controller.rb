@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activiy.new(activity_params)
     @activity.household_id = @household.id
-    @activity.creator = current_user
+    @activity.user = current_user
     @activity.save
     redirect_to household_activities_path(@household)
   end
@@ -22,6 +22,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.update(activity_params)
     @activity.household = @household
+    point_calculation
     redirect_to household_activities_path
   end
 
@@ -39,5 +40,13 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:content)
+  end
+
+  def point_calculation
+    @household.users.each do |user|
+      # user.earned_points = 0
+      user.earned_points += Task.where(done: true, assignee: user).sum(:points) + Activity.where(done: true, user: user).sum(:points)
+      user.save
+    end
   end
 end

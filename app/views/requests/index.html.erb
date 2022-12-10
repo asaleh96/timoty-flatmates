@@ -1,28 +1,31 @@
-<div class="container" style="margin: 40px auto; min-height: 100vh; align-items: center; display: flex; flex-direction: column;">
-            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>Here are your <span style='color:#01a5e2;'>requests</span></b>!</h2>
-                                <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Make sure to accept only requests from people you know.</p>
+<div style='height: 80vh; width: 100%; vertical-align: middle; padding: 10px 0;'>
+    <div class="" style='padding: 40px 20px'>
+        <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b>Here are your <span style='color:#01a5e2;'>requests</span></b></h2>
+                                <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 10px 0 20px';>Make sure to accept only requests from people you know.</p>
 
-            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+            <div class='text-center' style='text-align: center; height: 0.3vh; background-color: #01a5e2;  margin: 10px auto 40px; width: 8%;'>
             </div>
 
 
-<% if @requests.empty? %>
- <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>You currently have no requests. Ask your Captain to send you an invitation or <strong> <span style='color: #01a5e2'><%= link_to 'start your own household!', new_household_path %> </span> </strong></p>
-<% else %>
-<div class="row">
-  <% @requests.each do |request| %>
-    <div class="card" style="width: 18rem; margin: 10px; padding: 10px;">
-      <div class="card-body">
-        <%= "A request to join #{request.household.name}" %>
-      </div>
-      <div class="btn submit-btn"  style="border: 1px solid #e6e6e6;">
-        <%= simple_form_for [@user, request] do |f| %>
-          <%= f.input :accepted, as: :hidden, input_html: { value: true } %>
-          <%= f.submit "Accept Request" %>
+      <% if @requests.empty? %>
+        <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 10px 20px';>You currently have no requests. Ask your Captain to send you an invitation or <strong> <span style='color: #01a5e2'><%= link_to 'start your own household!', new_household_path %> </span> </strong> </p>
+        <%= image_tag ("wait.svg"), style: 'text-align: center; margin: 20px auto; padding: 50px; height: 50vh' %>
 
-        <% end %>
-      </div>
-  </div>
-  <% end %>
-  <% end %>
+      <% else %>
+        <div class="row">
+          <% @requests.each do |request| %>
+            <div class="card" style="width: 18rem; margin: 10px; padding: 10px;">
+              <div class="card-body">
+                <%= "A request to join #{request.household.name}" %>
+              </div>
+              <div class="btn submit-btn"  style="border: 1px solid #e6e6e6;">
+              <%= simple_form_for [@user, request] do |f| %>
+                <%= f.input :accepted, as: :hidden, input_html: { value: true } %>
+                <%= f.submit "Accept Request" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
 </div>

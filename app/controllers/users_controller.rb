@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
 
- # def index
-  #  @users = User.all
-   # @request = Request.new
-  # end
+  def create
+    @user = User.new(user_params)
+  end
 
   def index
     if params[:query].present?

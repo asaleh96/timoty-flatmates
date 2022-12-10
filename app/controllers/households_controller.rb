@@ -62,13 +62,13 @@ class HouseholdsController < ApplicationController
 
   def dashboard
     @household = Household.find(params[:household_id])
-    @users = User.all
-    @tasks = Task.all
-    @tasks.each do |task|
-    if current_user == task.assignee && task.done?
-     current_user.earned_points += task.points
-    end
-  end
+    @users = User.where(household_id: @household.id)
+    @tasks = Task.where(household_id: @household.id)
+    # @tasks.each do |task|
+    # if current_user == task.assignee && task.done?
+    #  current_user.earned_points += task.points
+    # end
+    # end
 end
 
   def confirmation

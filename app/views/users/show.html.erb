@@ -29,10 +29,10 @@
                 <% end %>
                 <div class="row text-center m-t-20">
                     <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light">10</h3><strong>Tasks</strong>
+                        <h3 class="m-b-0 font-light"> <%= @alltasks %> </h3><strong>Tasks</strong>
                     </div>
                     <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light">4</h3><strong>To complete</strong>
+                        <h3 class="m-b-0 font-light"> <%= @taskstodo %></h3><strong>To complete</strong>
                     </div>
                     <div class="col-lg-4 col-md-4 m-t-20">
                         <h3 class="m-b-0 font-light"><%= @user.earned_points %></h3><strong>Total Points</strong>

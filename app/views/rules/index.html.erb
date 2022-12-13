@@ -1,21 +1,20 @@
 
- <div class="container" style='padding: 30px 100px'>
-            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>What are the rules of your<span style='color:#01a5e2;'> Household</b>?</h2>
-                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 3/4</p>
-            <div class='text-center' style='text-align: center; border: 2px solid #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+  <div class="align-self-center justify-content-center" style='padding: 40px 20px'>
 
   </div>
 
-  <div data-controller="insert-in-list">
-  <div data-insert-in-list-target="items">
-    <!-- [...] -->
-  </div>
+
+      <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b>What are the <span style='color:#01a5e2;'> rules </span>of your Household?</b></h2>
+       <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 10px 20px';>Setup 3/4</p>
+          <div class='text-center' style='text-align: center; height: 0.5vh; background-color: #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+          </div>
 
 
-                        <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Add a rule', new_household_rule_path, class: 'btn-main', style: 'background-color: green' %> </div>
+
+                        <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Add a rule', new_household_rule_path, class: 'btn-main', style: 'background-color: green; padding: 1vh 2vh; font-size: 2vh;' %> </div>
 
 
-<div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Previous',  users_path, class: 'btn-main' %>  <%= link_to 'Next',  household_tasks_path, class: 'btn-main' %> </div>
+<div style='text-align: center; margin: 30px auto 50px;'> <%= link_to 'Previous',  users_path, class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;' %>  <%= link_to 'Next', household_tasks_path(current_user.household_id), class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;'%> </div>
 
 
 

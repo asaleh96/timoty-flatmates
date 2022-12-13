@@ -13,15 +13,16 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Enter a username"
+    placeholder: "Enter a username...",
+    style: 'width: 50vh; font-size: 2vh'
   %>
-  <button class='btn-main', style='background-color:green'>
+  <button class='btn-main', style='background-color:green; padding: 1vh 2vh; font-size: 2vh;'>
   <%= submit_tag "Search" %>
   </button>
 <% end %>
 </div>
 
-<div style='text-align: center; margin: 30px auto 50px'> <%= link_to 'Previous',  new_household_path, class: 'btn-main' %>  <%= link_to 'Next', household_rules_path(current_user.household_id), class: 'btn-main' %> </div>
+<div style='text-align: center; margin: 30px auto 50px;'> <%= link_to 'Previous',  new_household_path, class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;' %>  <%= link_to 'Next', household_rules_path(current_user.household_id), class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;'%> </div>
 
 
 
@@ -43,8 +44,8 @@
       </div>
         <div class="">
             <%= simple_form_for [user, @request] do |f| %>
-            <button class="btn-main-blue" style='color:white'  data-controller="accept" data-action="click->accept#disable" data-accept-target="button">
-              <%=  f.button :submit, "Send a request"  %>
+            <button class="btn-main-blue" style='color:white; padding: 1vh 2vh; font-size: 2vh;'  data-controller="accept" data-action="click->accept#disable" data-accept-target="button">
+              <%=  f.button :submit, "Send a request", style: 'font-size: 1.8vh; color: white;'  %>
              </button>
             <% end %>
 

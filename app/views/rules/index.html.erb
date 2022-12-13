@@ -22,17 +22,17 @@
 <div class="container", style='width: 70%; padding: 10px 30px; margin: 20px auto;'>
 
 
-            <div class="row">
+            <div class="row-lg">
 
-                <div class="col-lg-10 mx-auto">
+                <div class="col-xl--10 mx-auto">
 
                     <div class="career-search mb-60">
 
                         <div class="filter-result">
                             <% @rules.each do |rule| %>
-                              <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                              <div class="job-box d-md-flex align-items-center justify-content-between mb-4" style='height: 15vh;'>
                                   <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                      <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
+                                      <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
                                           <%= image_tag ("accont.svg") %>
                                       </div>
                                       <div class="job-content">
@@ -46,12 +46,12 @@
                                   </div>
 
                                 <div class="job-right my-4 flex-shrink-0">
-                                    <%= link_to edit_household_rule_path(rule.household, rule), class: 'secondary-btn', style: 'margin: 10px 5px' do %>
-                                      <i class="fa-solid fa-pen-to-square"></i>
+                                    <%= link_to edit_household_rule_path(rule.household, rule), class: 'secondary-btn', style: 'margin: 10px 5px; padding: 1.5vh 2.5vh;' do %>
+                                      <i class="fa-solid fa-pen-to-square" style='font-size: 2vh'></i>
                                     <% end %>
-                                    <%= link_to household_rule_path(rule.household, rule), class: 'btn-main', style: 'background-color: red;',
+                                    <%= link_to household_rule_path(rule.household, rule), class: 'btn-main', style: 'background-color: red; margin: 10px 5px; padding: 1.5vh 2.5vh;',
                                       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                                      <i class="fa-solid fa-trash"></i>
+                                      <i class="fa-solid fa-trash" style='font-size: 2vh'></i>
                                     <% end %></p>
                                 </div>
                               </div>

@@ -2,47 +2,57 @@
 
 <%= turbo_frame_tag dom_id(task) do %>
 <% if task.done? %>
-   <div style='green; margin: 10px; border: solid 2px green; background-color: lightgreen; opacity: 0.7; box-shadow: 1px 1px 1px lightgray'>
+   <div style='green; margin: 10px; background-color: lightgreen; opacity: 0.7; box-shadow: 1px 1px 1px lightgray'>
+
    <% else %>
    <div style='margin: 10px ; box-shadow: 1px 1px 1px lightgray'>
    <% end %>
-  <div class="border border-slate-300 p-6 rounded bg-white flex items-center" data-controller="edit-task">
+
+<% if task.done? %>
+  <div class="border border-slate-300 p-6 rounded flex items-center" data-controller="edit-task" style='padding: 50px; background-color: #D1efc5; border: 2px green;' >
+
+  <% else %>
+    <div class="border border-slate-300 p-6 rounded bg-white flex items-center" data-controller="edit-task" style='padding: 50px;'>
+<% end %>
 
     <%= link_to household_updated_task_path(task.household_id, task.id, task: { done: !task.done? }), data: {turbo_method: :patch} do %>
       <% if task.done? %>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" id='checkbox'>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8" id='checkbox' >
           <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
         </svg>
 
       <% else %>
-        <div class="h-6 w-6 bg-slate-200 rounded-full"></div>
+        <div class="h-8 w-8 bg-slate-200 rounded-full"></div>
       <% end %>
 
     <% end %>
 
 
-    <div data-edit-task-target="infos"></div>
-        <span class="ml-2"><%= task.name %></span>
+    <div data-edit-task-target="infos" style='padding: 4px;'></div>
+        <span class="ml-2" style='font-size: 2.5vh'><%= task.name %></span>
         <% if task.done? %>
-          <span class="ml-2"> <p style='text-weight: bold, font-size: 110%;'> Completed!</span>
-        <% else %>
-        <span class="ml-2"><%= task.points %></span>
-        <span class="ml-2 px-2">
-          <%= link_to edit_household_task_path(task.household_id, task), class: 'secondary-btn' do %>
-            <i class="fa-solid fa-pen-to-square" data-action="click->edit-task#displayForm"></i>
 
-            <% end %>
-            <%= link_to household_task_path(task.household_id, task), class: 'secondary-btn',
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-solid fa-trash"></i>
-            <% end %>
+        <% else %>
+        <span class="ml-2" style='font-size: 2.5vh'>for <span style='color: orange; font-weight: bold;'> <%= task.points %> </span> points</span>
+        <span class="ml-2 px-2">
+
           </span>
         <% end %>
     <div class= "ml-auto p-2">
-      <% if !task.assignee.nil? && !task.assignee.first_name.nil? %>
-        <span class="ml-2">Assignee:</span>
-        <span class="ml-2"><%= task.assignee.first_name %> <%= task.assignee.username %></span>
-      <% end %>
+
+        <% if !task.done? %>
+        <%= link_to edit_household_task_path(task.household_id, task), class: 'secondary-btn', style: 'margin: 0 20px;' do %>
+            <i class="fa-solid fa-pen-to-square" data-action="click->edit-task#displayForm"></i>
+
+            <% end %>
+            <%= link_to household_task_path(task.household_id, task), class: 'secondary-btn', style: 'background-color: red; border: red;',
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-solid fa-trash"></i>
+            <% end %>
+      <% else %>
+      <span style='color: darkgreen;'><strong> Completed!  <i class="fa-solid fa-thumbs-up"></i></strong></span>
+      <span style='color: darkgreen;'><strong> + <%= task.points %> for <%task.assignee %></span>
+          <% end %>
     </div>
 </div>
 </div>

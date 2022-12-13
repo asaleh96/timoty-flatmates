@@ -6,7 +6,9 @@
   <%= f.input :points %>
   <%= f.input :assignee, collection: @household.users.map { |user| user.username } %>
   <div style="text-align: center;">
-    <%= f.submit class: "btn-main" %>
+    <button class='btn btn-main' style='padding: 0px'>
+      <%= f.submit 'Add Task', class: "btn-main", data: {turbo: false}%>
+    </button>
   </div>
 <% end %>
 </div>

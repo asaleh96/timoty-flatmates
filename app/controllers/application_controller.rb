@@ -36,4 +36,8 @@ class ApplicationController < ActionController::Base
     flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
     redirect_back(fallback_location: root_path)
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end

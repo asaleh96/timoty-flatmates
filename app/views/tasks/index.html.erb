@@ -1,18 +1,31 @@
- <div class="container" style='padding: 30px 100px'>
-            <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b>What are your<span style='color:#f3703f;'> Tasks</span></b>?</h2>
-                    <p class="text-center" style='font-size: 20px; opacity: .7; padding: 10px 20px';>Set up 4/4</p>
-            <div class='text-center' style='text-align: center; border: 2px solid #f3703f;  margin: 10px auto 40px; width: 8%;'>
-            </div>
+  <div class="align-self-center justify-content-center" style='padding: 40px 20px'>
 
-  <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Add a Task', new_household_task_path, class: 'btn-main', style: 'background-color: green' %> </div>
-
-   <div style='text-align: center; margin: 0 auto 50px'>  <%= link_to 'Previous', household_rules_path(current_user.household_id), class: 'btn-main' %>   <%= link_to 'Complete Setup',  household_confirmation_path(current_user.household_id), class: 'btn-main' %> </div>
+  </div>
 
 
+      <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b>What are your <span style='color:#01a5e2;'> Tasks </span>?</b></h2>
+       <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 10px 20px';>Setup 4/4</p>
+          <div class='text-center' style='text-align: center; height: 0.5vh; background-color: #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+          </div>
 
-  <div class="grid gap-4">
+
+
+
+                        <div style='text-align: center; margin: 0 auto 50px'> <%= link_to '+ Add a Task', new_household_task_path, class: 'btn-main', style: 'background-color: green; padding: 1vh 2vh; font-size: 2vh;' %> </div>
+
+
+<div style='text-align: center; margin: 30px auto 50px;'> <%= link_to 'Previous',  household_rules_path(current_user.household_id), class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;' %>  <%= link_to 'Next', household_confirmation_path(current_user.household_id), class: 'btn-main', style: 'padding: 1vh 2vh; font-size: 2vh;'%> </div>
+
+
+
+
+
+  <div class="grid gap-1", style='width: 80%; margin: auto; font-size: 2vh; padding: 50px;'>
     <% @tasks.each do |task| %>
       <%= render 'tasks/task', task: task %>
     <% end %>
+
   </div>
+</div>
+</div>
 </div>

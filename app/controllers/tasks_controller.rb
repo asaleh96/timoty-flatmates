@@ -3,7 +3,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(household_id: @household.id)
-    raise
   end
 
   def new

@@ -1,14 +1,21 @@
-<div style="width: 60%; margin: 20px auto;">
+  <div class="align-self-center justify-content-center" style='padding: 40px 20px'>
+      <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b>Add a <span style='color:#01a5e2;'> Task </span></b></h2>
+
+          <div class='text-center' style='text-align: center; height: 0.5vh; background-color: #01a5e2;  margin: 10px auto 40px; width: 8%;'>
+          </div>
+
+<div style="margin: 20px auto; width: 100%; font-size: 2vh;">
 <%= simple_form_for [@household, @task] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :due_date %>
-  <%= f.input :points %>
-  <%= f.input :assignee, collection: @household.users.map { |user| user.username } %>
+  <%= f.input :name, input_html: { style: 'width: 100%; height: 4vh; font-size: 2.5vh' } %>
+  <%= f.input :due_date,  as: :date, input_html: { style: 'width: 100%; height: 4vh; font-size: 2.5vh' }, :order => [:day, :month, :year] %>
+  <%= f.input :points, input_html: { style: 'width: 100%; height: 4vh; font-size: 2.5vh' }   %>
+  <%= f.input :assignee, collection: @household.users.map { |user| user.username }, input_html: { style: 'width: 100%; height: 4vh; font-size: 20px;' }  %>
   <div style="text-align: center;">
-    <button class='btn btn-main' style='padding: 0px'>
-      <%= f.submit 'Add Task', class: "btn-main", data: {turbo: false}%>
+    <button class='btn btn-main' style='background-color: green; border-radius: 8px; padding: 0.7vh 2vh;'>
+      <%= f.submit 'Add Task', class: "btn-main",  style: 'background-color: green;  font-size: 2vh;',  data: {turbo: false}%>
     </button>
   </div>
 <% end %>
+</div>
+
 </div>

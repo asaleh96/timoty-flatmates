@@ -1,23 +1,27 @@
 
 <div class='tabs-div' style='min-height: 100vh'>
 
-    <h2 class="text-center", style='color: #2a2e30; padding: 30px 20px 0 20px; font-size: 32px; font-weight: bold;'><b><% if current_user.is_captain %> Captain <% end %><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard <i class="fa-solid fa-gears"></i></span> </b> </h2>
+  <div class="align-self-center justify-content-center" style='padding: 40px 20px'>
 
-    <% if current_user.is_captain %>
-        <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';>  Something is not right? Get back to your <%= link_to "setup", household_rules_path, style: 'font-weight: bold; color: skyblue' %>
+  </div>
 
-!</p>
-  <% else %>
-    <p class="text-center" style='font-size: 20px;  opacity: .7; padding: 10px 20px';>  Time to get to work!</p>
-    <% end %>
+
+      <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b><% if current_user.is_captain %> Captain <% end %><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard <i class="fa-solid fa-gears"></i></span></b></h2>
+       <% if current_user.is_captain %>
+       <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 30px 20px';>Something is not right? Get back to your <%= link_to "setup", household_rules_path, style: 'font-weight: bold; color: skyblue' %></p>
+       <% else %>
+        <% end %>
+
+
+
 <div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
 
 
 
-  <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 20px;'>Rules <i class="fa-solid fa-house-user"></i></button>
-  <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active' style='font-size: 20px;'>Tasks <i class="fa-solid fa-list-check"></i></button>
-  <button id="three" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 20px;'>Activities <i class="fa-solid fa-gamepad"></i></button>
-  <button id="abc" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 20px;' >Leaderboard <i class="fa-solid fa-trophy"></i></button>
+  <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Rules <i class="fa-solid fa-house-user"></i></button>
+  <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active' style='font-size: 2.5vh;'>Tasks <i class="fa-solid fa-list-check"></i></button>
+  <button id="three" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Activities <i class="fa-solid fa-gamepad"></i></button>
+  <button id="abc" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;' >Leaderboard <i class="fa-solid fa-trophy"></i></button>
 
   <div data-tabs-target="tab" id="one">
 

@@ -1,9 +1,10 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@timotyapp.com'
 
-  def welcome_email
-    @user = params[:user]
-    @url  = 'http://timotyapp.com/login'
-    mail(to: @user.email, subject: 'Welcome to Timoty!')
+  def weekly_email
+    @household = params[:household]
+    @household.users.each do |user|
+      @user = user
+      mail(to: @user.email, subject: 'Weekly Timoty Update')
+    end
   end
 end

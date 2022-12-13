@@ -4,6 +4,7 @@
   <%= f.input :description %>
   <%= f.input :due_date %>
   <%= f.input :points %>
+  <%= f.input :assignee, collection: @household.users.map { |user| user.username } %>
   <div style="text-align: center;">
     <%= f.submit class: "btn-main" %>
   </div>

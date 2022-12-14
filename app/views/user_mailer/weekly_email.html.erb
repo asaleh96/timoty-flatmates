@@ -3,14 +3,35 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.first_name %></h1>
-    <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.username %>.<br>
-    </p>
-    <p>
-      To login to the site, just follow this link:
-    </p>
-    <p>Thanks for joining and have a great day!</p>
+    <div class="logo-container" style="text-align: center;">
+      <%= image_tag '/app/assets/images/3.png', class: "img-fuid", style: "width: 16vh" %>
+    </div>
+    <div class="email-body">
+      <div class="title-box">
+        <h1>Your Weekly Roundup</h1>
+        <p>Hi <%= @user.first_name %>, here is your roundup for <%= @household.name %>!</p>
+      </div>
+      <div class="leaderboard__profiles">
+        <% @household.users.order("earned_points desc").each_with_index do |user, index| %>
+            <article class="leaderboard__profile">
+                <% if user.photo.attached? %>
+                  <%= cl_image_tag user.photo.key, class: 'rounded-circle text-center object-center leaderboard__picture', style: 'display: inline', height: 200, width: 200, crop: :fill, gravity: "auto", radius: "max" %>
+                <% else %>
+                  <%= image_tag '/app/assets/images/user-placeholder.png', class: 'rounded-circle text-center leaderboard__picture', height: 100, width: 100  %>
+                <% end %>
+                <% if index == 0 %>
+                  <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: gold; font-size: 180%;'></i>  <%= index + 1 %>. <%= user.username %></span>
+                <% elsif index == 1 %>
+                  <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: silver; font-size: 150%;'></i>  <%= index + 1 %>. <%= user.username %></span>
+                <% elsif index == 2 %>
+                  <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: #cd8f32; font-size: 120%'></i>  <%= index + 1 %>. <%= user.username %></span>
+                <% else %>
+                  <span class="leaderboard__name"><%= index + 1 %>. <%= user.username %></span>
+                <% end %>
+              <span class="leaderboard__value"> <%= user.earned_points %></span>
+            </article>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>

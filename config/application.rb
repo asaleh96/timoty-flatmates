@@ -17,6 +17,7 @@ module TimotyFlatmates
     config.load_defaults 7.0
     config.active_job.queue_adapter = :sidekiq
     config.exceptions_app = self.routes
+    config.asset_host = "localhost:3000"
 
     # Configuration for the application, engines, and railties goes here.
     #

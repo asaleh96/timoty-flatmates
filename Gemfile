@@ -36,6 +36,8 @@ gem "sidekiq-failures", "~> 1.0"
 
 gem "letter_opener"
 
+gem "mail"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

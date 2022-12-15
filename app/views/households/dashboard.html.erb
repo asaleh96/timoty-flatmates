@@ -28,28 +28,27 @@
   <ul>
 
 
-<div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
-
-            <div class="row">
+<div class="container", style='width: 70%; padding: 10px 30px; margin: 20px auto;'>
 
 
+            <div class="row-lg">
 
+                <div class="col-xl--10 mx-auto">
 
-                <div class="col-lg-10 mx-auto">
                     <div class="career-search mb-60">
 
                         <div class="filter-result">
                             <% @household.rules.each do |rule| %>
 
-                              <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                              <div class="job-box d-md-flex align-items-center justify-content-between mb-30" style='height: 13vh;'>
                                   <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                      <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex">
+                                      <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
                                           <%= image_tag ("accont.svg") %>
                                       </div>
                                       <div class="job-content">
                                           <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
                                               <li class="mr-md-4">
-                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 30px'></i><%= rule.name %>
+                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px; font-size: 2vh;'></i><span style='font-size: 2vh; padding-left: 30px;'><%= rule.name %>
                                               </li>
 
                                           </ul>
@@ -99,7 +98,7 @@
 <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
   <div class="row">
     <div class="col-lg-10 mx-auto">
-    <p>Set up an activity to earn extra points!</p>
+    <p style='font-size: 2vh'>Set up an activity to earn extra points!</p>
         <% @household.activities.each do |activity| %>
             <%= render 'activities/activity', activity: activity %>
         <% end %>
@@ -119,23 +118,23 @@
 
     <% @household.users.order("earned_points desc").each_with_index do |user, index| %>
       <%= link_to user_path(user) do %>
-      <article class="leaderboard__profile">
+      <article class="leaderboard__profile" style='height: 10vh;'>
           <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, class: 'rounded-circle text-center object-center leaderboard__picture', style: 'display: inline', height: 200, width: 200, crop: :fill, gravity: "auto", radius: "max" %>
+            <%= cl_image_tag user.photo.key, class: 'rounded-circle text-center object-center leaderboard__picture', style: 'display: inline; height: 120px; width: 120px', height: 100, width: 100, crop: :fill, gravity: "auto", radius: "max" %>
           <% else %>
             <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center leaderboard__picture', height: 100, width: 100  %>
           <% end %>
           <% if index == 0 %>
-        <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: gold; font-size: 180%;'></i>  <%= index + 1 %>. <%= user.username %></span>
+        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: gold; font-size: 3vh;'></i>  <%= index + 1 %>. <%= user.username %></span>
           <% elsif index == 1 %>
-        <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: silver; font-size: 150%;'></i>  <%= index + 1 %>. <%= user.username %></span>
+        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: silver; font-size: 2.5vh'></i>  <%= index + 1 %>. <%= user.username %></span>
           <% elsif index == 2 %>
-        <span class="leaderboard__name"><i class="fa-solid fa-trophy" style='color: #cd8f32; font-size: 120%'></i>  <%= index + 1 %>. <%= user.username %></span>
+        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: #cd8f32; font-size: 2vh'></i>  <%= index + 1 %>. <%= user.username %></span>
           <% else %>
-        <span class="leaderboard__name"><%= index + 1 %>. <%= user.username %></span>
+        <span class="leaderboard__name" style='font-size: 2.5vh;' ><%= index + 1 %>. <%= user.username %></span>
 
           <% end %>
-        <span class="leaderboard__value"> <%= user.earned_points %></span>
+        <span class="leaderboard__value" style='font-size: 3vh;'> <%= user.earned_points %></span>
       </article>
     <% end %>
      <% end %>

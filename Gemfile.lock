@@ -310,6 +310,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   letter_opener
+  mail
   pg (~> 1.1)
   puma (~> 5.0)
   pundit

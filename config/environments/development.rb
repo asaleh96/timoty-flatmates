@@ -6,14 +6,6 @@ Rails.application.configure do
     host: "http://localhost:3000",
     protocol: 'http'
   }
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.gmail.com',
-  #   port: 601,
-  #   user_name: "timotyflatmates",
-  #   password: "wqjgwlgjkmsfghrx",
-  #   authentication: 'plain',
-  #   enable_starttls_auto: true
-  # }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -27,7 +19,6 @@ Rails.application.configure do
     open_timeout:         5,
     read_timeout:         5
   }
-
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development

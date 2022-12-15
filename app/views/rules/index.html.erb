@@ -33,12 +33,12 @@
                               <div class="job-box d-md-flex align-items-center justify-content-between mb-4" style='height: 15vh;'>
                                   <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
                                       <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
-                                          <%= image_tag ("accont.svg") %>
+                                           <%= image_tag "random/#{rand(4)}.svg" %>
                                       </div>
                                       <div class="job-content">
                                           <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
                                               <li class="mr-md-4">
-                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px'></i><%= rule.name %>
+                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px; font-size: 2vh;'></i><span style='font-size: 2vh; padding-left: 30px;'><%= rule.name %></span>
                                               </li>
 
                                           </ul>

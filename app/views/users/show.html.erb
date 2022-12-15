@@ -1,35 +1,35 @@
 
 
 
-<div class="container", style='width: 50%; padding: 30px; margin: 50px auto; border-radius: 10px; box-shadow: 1px 1px 1px lightgray; border: 1px solid lightgray;'>
-        <div class="profile-card" style='width: 100%; margin: 0;'> <img class="profile-card-img-top" style='width: 100%;' src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1752&q=80" alt="Card image cap">
+<div class="container", style='width: 50%; font-size: 2vh; height: 100%; padding: 30px; margin: 50px auto; border-radius: 10px; box-shadow: 1px 1px 1px lightgray; border: 1px solid lightgray;'>
+        <div class="profile-card" style='width: 100%; margin: 0;'> <img class="profile-card-img-top" style='width: 100%; height: 25vh;' src="https://images.unsplash.com/photo-1528460033278-a6ba57020470?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Card image cap">
             <div class="profile-card-body little-profile text-center">
-                <div class="pro-img text-center object-center" style='text-align: center;'>
+                <div class="pro-img text-center object-center" style='text-align: center; '>
                 <% if @user.photo.attached? %>
-                  <%= cl_image_tag @user.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline', height: 200, width: 200, crop: :fill, gravity: "auto", radius: "max" %>
+                  <%= cl_image_tag @user.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline; margin-bottom: 1vh;', height: 250, width: 250, crop: :fill, gravity: "auto", radius: "max" %>
                  <% else %>
                   <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center',  style: 'display: inline;'  %>
                 <% end %></div>
-                <h3> @<%= @user.username %></h3>
-                <h3> <%= @user.first_name %></h3>
-                <h3> Your household is: <%= current_user.household.name %> </h3>
+                <h3 style='padding-bottom: 1vh;'> @<%= @user.username %></h3>
                 <% if @user.is_captain? %>
-                  <h3> You are the captain! </h3>
+                  <h3 style='padding-bottom: 1vh;'>You are the captain of  <%= current_user.household.name %>! </h3>
+                <% elsif !@user.household.nil? %>
+                  <h3 style='padding-bottom: 1vh;'>  You have joined  <%= current_user.household.name %>, lead by <%= current_user.household.captain.username %>!</h3>
                 <% else %>
-                  <h3> Your captain is <%= current_user.household.captain.username %></h3>
+                   <h3 style='padding-bottom: 1vh;'> You have not joined any household yet! </h3>
                 <% end %>
                 <p style='padding: 5px 0'> <%= @user.status %></p>
                 <% if @user == current_user %>
                 <div>
-                  <div style='margin: 10px auto 0'> <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: 'btn-main' %> </div>
+                  <div style='margin: 10px auto 0; font-size: 1.8vh;'> <%= link_to 'Edit My Profile', edit_user_registration_path(current_user), class: 'btn-main' %>  <%= link_to 'Check Out My Household', household_dashboard_path(current_user.household), class: 'btn-main' %></div>
                 </div>
                 <div>
-                <div style='margin: 10px auto 0'> <%= link_to 'Checkout my household', household_dashboard_path(current_user.household), class: 'btn-main' %> </div>
+
                 </div>
                 <% end %>
-                <div class="row text-center m-t-20">
+                <div class="row text-center m-t-20" style='font-size: 2vh'>
                     <div class="col-lg-4 col-md-4 m-t-20">
-                        <h3 class="m-b-0 font-light"> <%= @alltasks %> </h3><strong>Tasks</strong>
+                        <h3 class="m-b-0 font-light" > <%= @alltasks %> </h3><strong>Tasks</strong>
                     </div>
                     <div class="col-lg-4 col-md-4 m-t-20">
                         <h3 class="m-b-0 font-light"> <%= @taskstodo %></h3><strong>To complete</strong>
@@ -45,4 +45,4 @@
 
 </div>
 </div>
- <div style='text-align: center; margin: 0 auto 50px'> <%= link_to 'Back to Dashboard', '#', class: 'secondary-btn' %> </div>
+ <div style='text-align: center; margin: 0 auto 50px; font-size: 1.5vh'> <%= link_to 'Back to Dashboard', '#', class: 'secondary-btn' %> </div>

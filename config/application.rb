@@ -15,6 +15,7 @@ module TimotyFlatmates
     end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.action_controller.raise_on_open_redirects = false
     config.active_job.queue_adapter = :sidekiq
     config.exceptions_app = self.routes
     config.asset_host = "localhost:3000"

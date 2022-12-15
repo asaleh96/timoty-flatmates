@@ -18,7 +18,7 @@ module TimotyFlatmates
     config.action_controller.raise_on_open_redirects = false
     config.active_job.queue_adapter = :sidekiq
     config.exceptions_app = self.routes
-    config.asset_host = "localhost:3000"
+    config.asset_host = ENV."localhost:3000"
 
     # Configuration for the application, engines, and railties goes here.
     #

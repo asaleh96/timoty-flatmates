@@ -110,7 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_181701) do
     t.string "first_name"
     t.string "last_name"
     t.string "username"
-    t.integer "earned_points", default: 0
+    t.integer "earned_points", default: 0dev
     t.integer "give_points"
     t.date "birthday_date"
     t.text "status"

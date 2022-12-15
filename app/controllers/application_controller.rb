@@ -42,3 +42,5 @@ class ApplicationController < ActionController::Base
   end
 
 end
+
+# DOMAIN=www.timotyapp.com

@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   def point_calculation
     @household.users.each do |user|
       user.earned_points = 0
-      user.earned_points += Task.where(done: true, assignee: user).sum(:points) + Activity.where(done: true, user_id: user.id).sum(:points)
+      user.earned_points += Task.where(done: true, assignee: user).sum(:points) + Activity.where(user_id: user.id).sum(:points)
       user.save
     end
   end

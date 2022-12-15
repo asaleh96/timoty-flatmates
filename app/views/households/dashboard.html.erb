@@ -1,155 +1,141 @@
 
 <div class='tabs-div' style='min-height: 100vh'>
-
   <div class="align-self-center justify-content-center" style='padding: 40px 20px'>
-
   </div>
 
+  <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b><% if current_user.is_captain %> Captain <% end %><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard <i class="fa-solid fa-gears"></i></span></b></h2>
+      <% if current_user.is_captain %>
+        <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 30px 20px';>Something is not right? Get back to your <%= link_to "setup", household_rules_path, style: 'font-weight: bold; color: skyblue' %></p>
+      <% end %>
 
-      <h2 class="text-center", style='color: #2a2e30; text-align: right; padding: 30px 20px 0 20px; font-size: 4.5vh; font-weight: bold;'><b><% if current_user.is_captain %> Captain <% end %><%= current_user.username.capitalize%>'s<span style='color:#01a5e2;'> Dashboard <i class="fa-solid fa-gears"></i></span></b></h2>
-       <% if current_user.is_captain %>
-       <p class="text-center" style='font-size: 2.5vh; opacity: .7; padding: 30px 20px';>Something is not right? Get back to your <%= link_to "setup", household_rules_path, style: 'font-weight: bold; color: skyblue' %></p>
-       <% else %>
-        <% end %>
+  <div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
+    <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Rules <i class="fa-solid fa-house-user"></i></button>
+    <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active' style='font-size: 2.5vh;'>Tasks <i class="fa-solid fa-list-check"></i></button>
+    <button id="three" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Activities <i class="fa-solid fa-gamepad"></i></button>
+    <button id="four" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;' >Leaderboard <i class="fa-solid fa-trophy"></i></button>
 
+    <div data-tabs-target="tab" id="one">
 
-
-<div data-controller="tabs" data-tabs-default-tab-value="two" class='list-inline tabs-underlined'>
-
-
-
-  <button id="one" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Rules <i class="fa-solid fa-house-user"></i></button>
-  <button id="two" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined active' style='font-size: 2.5vh;'>Tasks <i class="fa-solid fa-list-check"></i></button>
-  <button id="three" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;'>Activities <i class="fa-solid fa-gamepad"></i></button>
-  <button id="abc" data-tabs-target="btn" data-action="click->tabs#select" class='tab-underlined' style='font-size: 2.5vh;' >Leaderboard <i class="fa-solid fa-trophy"></i></button>
-
-  <div data-tabs-target="tab" id="one">
-
-  <ul>
+      <ul>
 
 
-<div class="container", style='width: 70%; padding: 10px 30px; margin: 20px auto;'>
-
-
-            <div class="row-lg">
-
-                <div class="col-xl--10 mx-auto">
-
-                    <div class="career-search mb-60">
-
-                        <div class="filter-result">
-                            <% @household.rules.each do |rule| %>
-
-                              <div class="job-box d-md-flex align-items-center justify-content-between mb-30" style='height: 13vh;'>
-                                  <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                      <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
-                                          <%= image_tag "random/#{rand(5)}.svg" %>
-
-                                      </div>
-                                      <div class="job-content">
-                                          <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
-                                              <li class="mr-md-4">
-                                                  <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px; font-size: 2vh;'></i><span style='font-size: 2vh; padding-left: 30px;'><%= rule.name %>
-                                              </li>
-
-                                          </ul>
-                                      </div>
-                                  </div>
-
-
-                              </div>
-                            <% end %>
-                          </div>
-
+        <div class="container", style='width: 70%; padding: 10px 30px; margin: 20px auto;'>
+          <div class="row-lg">
+            <div class="col-xl--10 mx-auto">
+              <div class="career-search mb-60">
+                <div class="filter-result">
+                  <% @household.rules.each do |rule| %>
+                    <div class="job-box d-md-flex align-items-center justify-content-between mb-30" style='height: 13vh;'>
+                      <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                        <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
+                          <%= image_tag "random/#{rand(5)}.svg" %>
+                        </div>
+                        <div class="job-content">
+                          <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                            <li class="mr-md-4">
+                              <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px; font-size: 2vh;'></i><span style='font-size: 2vh; padding-left: 30px;'><%= rule.name %>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-
-
+                  <% end %>
                 </div>
-
+              </div>
             </div>
-
+          </div>
         </div>
 
-</ul>
+      </ul>
    </div>
-  <div data-tabs-target="tab" id="two">
-  <ul>
 
-<div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
-
-            <div class="row">
-
-
-
-
-                <div class="col-lg-10 mx-auto">
-   <% @tasks.each do |task| %>
-      <%= render 'dashboard_tasks', task: task %>
-    <% end %>
-
-</div>
-</div>
-</div>
-
-</ul>
+    <div data-tabs-target="tab" id="two">
+      <ul>
+        <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <% @tasks.each do |task| %>
+                <%= render 'dashboard_tasks', task: task %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </ul>
    </div>
+
   <div data-tabs-target="tab" id="three">
-  <ul>
+    <ul>
+      <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <p style='font-size: 2vh'>Set up an activity to earn extra points!</p>
+            <div style='text-align: center; margin: 30px auto 50px'> <%= link_to '+ Suggest an Activity', new_household_activity_path, class: 'btn-main', style: 'background-color: green; font-size: 2vh; padding: 1vh 2vh;' %> </div>
+          </div>
+        </div>
 
-<div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-    <p style='font-size: 2vh'>Set up an activity to earn extra points!</p>
-      <div style='text-align: center; margin: 30px auto 50px'> <%= link_to '+ Suggest an Activity', new_household_activity_path, class: 'btn-main', style: 'background-color: green; font-size: 2vh;' %> </div>
-
-
-        <% @household.activities.each do |activity| %>
-            <%= render 'activities/activity', activity: activity %>
-        <% end %>
-  </div>
-</div>
-
-</ul>
-  </div>
-  <div data-tabs-target="tab" id="abc">
-  <ul>
-  <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
-<div class="row">
-
-                <div class="col-lg-10 mx-auto">
-
-  <div class="leaderboard__profiles">
-
-    <% @household.users.order("earned_points desc").each_with_index do |user, index| %>
-      <%= link_to user_path(user) do %>
-      <article class="leaderboard__profile" style='height: 10vh;'>
-          <% if user.photo.attached? %>
-            <%= cl_image_tag user.photo.key, class: 'rounded-circle text-center object-center leaderboard__picture', style: 'display: inline; height: 120px; width: 120px', height: 100, width: 100, crop: :fill, gravity: "auto", radius: "max" %>
-          <% else %>
-            <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center leaderboard__picture', height: 100, width: 100  %>
-          <% end %>
-          <% if index == 0 %>
-        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: gold; font-size: 3vh;'></i>  <%= index + 1 %>. <%= user.username %></span>
-          <% elsif index == 1 %>
-        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: silver; font-size: 2.5vh'></i>  <%= index + 1 %>. <%= user.username %></span>
-          <% elsif index == 2 %>
-        <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: #cd8f32; font-size: 2vh'></i>  <%= index + 1 %>. <%= user.username %></span>
-          <% else %>
-        <span class="leaderboard__name" style='font-size: 2.5vh;' ><%= index + 1 %>. <%= user.username %></span>
-
-          <% end %>
-        <span class="leaderboard__value" style='font-size: 3vh;'> <%= user.earned_points %></span>
-      </article>
-    <% end %>
-     <% end %>
-
+        <div class="container", style='width: 70%; padding: 10px 30px; margin: 20px auto;'>
+          <div class="row-lg">
+            <div class="col-xl--10 mx-auto">
+              <div class="career-search mb-60">
+                <div class="filter-result">
+                  <% @household.activities.each do |activity| %>
+                    <div class="job-box d-md-flex align-items-center justify-content-between mb-30" style='height: 13vh;'>
+                      <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                        <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style='height: 10vh; width: 10vh;'>
+                          <%= cl_image_tag activity.user.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline', height: 100, width: 100, crop: :fill, gravity: "auto", radius: "max" %>
+                        </div>
+                        <div class="job-content">
+                          <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                            <li class="mr-md-4">
+                              <i class="zmdi zmdi-pin mr-2" style='padding-right: 5px; font-size: 2vh;'></i><span style='font-size: 2vh; padding-left: 30px;'><span style='color: skyblue'><%= activity.user.username %></span> would like to <span style='color: skyblue'><%= activity.name %></span> -  + <%= activity.points %> points
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
   </div>
 
-</ul>
-  </div>
-</div>
-</div>
-</div>
 
-</div>
+  <div data-tabs-target="tab" id="four">
+    <ul>
+      <div class="container", style='width: 100%; padding: 10px 30px; margin: 20px auto;'>
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <div class="leaderboard__profiles">
+              <% @household.users.order("earned_points desc").each_with_index do |user, index| %>
+                <%= link_to user_path(user) do %>
+                  <article class="leaderboard__profile" style='height: 10vh;'>
+                    <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, class: 'rounded-circle text-center object-center leaderboard__picture', style: 'display: inline; height: 10vh; width: 10vh', height: 100, width: 100, crop: :fill, gravity: "auto", radius: "max" %>
+                    <% else %>
+                      <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center leaderboard__picture', height: 100, width: 100  %>
+                    <% end %>
+                    <% if index == 0 %>
+                      <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: gold; font-size: 3vh;'></i>  <%= index + 1 %>. <%= user.username %></span>
+                    <% elsif index == 1 %>
+                      <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: silver; font-size: 2.5vh'></i>  <%= index + 1 %>. <%= user.username %></span>
+                    <% elsif index == 2 %>
+                      <span class="leaderboard__name" style='font-size: 2.5vh;'><i class="fa-solid fa-trophy" style='color: #cd8f32; font-size: 2vh'></i>  <%= index + 1 %>. <%= user.username %></span>
+                    <% else %>
+                    <span class="leaderboard__name" style='font-size: 2.5vh;' ><%= index + 1 %>. <%= user.username %></span>
+                    <% end %>
+                    <span class="leaderboard__value" style='font-size: 3vh;'> <%= user.earned_points %></span>
+                 </article>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+
 </div>

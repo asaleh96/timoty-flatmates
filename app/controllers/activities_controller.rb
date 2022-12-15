@@ -7,12 +7,14 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activiy.new(activity_params)
-    @activity.household_id = @household.id
+    params = activity_params
+    @activity = Activity.new(params)
+    @activity.household = @household
     @activity.user = current_user
     @activity.save
-    redirect_to household_activities_path(@household)
+    redirect_to household_dashboard_path(current_user.household)
   end
+
 
   def edit
     @activity = Activity.find(params[:id])

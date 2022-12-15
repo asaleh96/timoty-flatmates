@@ -2,8 +2,8 @@ class ActivitiesController < ApplicationController
   before_action :set_household, only: %i[index new create edit update destroy]
 
   def new
-    @household = Household.find(params[:household_id])
     @activity = Activity.new
+    @household = Household.find(params[:household_id])
   end
 
   def create
@@ -39,7 +39,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:content)
+    params.require(:activity).permit(:name, :points, :due_date, :description)
   end
 
   def point_calculation

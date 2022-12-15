@@ -8,7 +8,7 @@ class UserMailer < ApplicationMailer
     @maxtask = Task.where(household_id: @household.id, done: true).max_by(&:points)
     @maxuser = @maxtask.assignee
 
-    @fastuser = @household.users.sample
+    @fastuser = @household.users.first
 
     @household.users.each do |user|
       @user = user

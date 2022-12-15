@@ -21,7 +21,7 @@
     <% end %>
 
 
-    <div data-edit-task-target="infos" style='padding: 4px;'></div>
+    <div data-edit-task-target="infos" style='padding: 4px; font-size: 2.5vh;'></div>
         <span class="ml-2" style='font-size: 2.5vh'><%= task.name %></span>
         <% if !task.done? %>
         <span class="ml-2" style='font-size: 2.5vh'>for <span style='color: orange; font-weight: bold;'> <%= task.points %> </span> points</span>
@@ -38,8 +38,9 @@
           </span>
 
         <% else %>
-          <span style='color: darkgreen; font-size: 2.5vh'><strong> Completed!  <i class="fa-solid fa-thumbs-up"></i></strong></span>
+          <span  style='color: darkgreen; font-size: 2.5'><strong> Completed!  <i class="fa-solid fa-thumbs-up"></i></strong></span>
           <span style='color: darkgreen; font-size: 2.5vh'><strong> + <%= task.points %> for <%task.assignee %></span>
+
         <% end %>
 
         </div>

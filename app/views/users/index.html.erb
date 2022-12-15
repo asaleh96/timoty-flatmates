@@ -33,6 +33,7 @@
 <div class="row d-flex justify-content-center py-4" style="margin: 0 auto; text-align: center;">
 
   <% @users.each do |user| %>
+  <% if user.household.nil? %>
     <div class="card" style="width: 40vh; margin: 10px; padding: 10px;">
       <div class="card-body">
         <h2><%= user.username %></h2>
@@ -51,5 +52,6 @@
 
     </div>
     </div>
+    <% end %>
   <% end %>
 </div>

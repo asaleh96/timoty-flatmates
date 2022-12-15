@@ -39,7 +39,7 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(:content)
+    params.require(:activity).permit(:name, :points)
   end
 
   def point_calculation

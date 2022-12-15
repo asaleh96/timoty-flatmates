@@ -100,6 +100,17 @@
   <div class="row">
     <div class="col-lg-10 mx-auto">
     <p style='font-size: 2vh'>Set up an activity to earn extra points!</p>
+      <div style='text-align: center; margin: 30px auto 50px'> <%= link_to '+ Suggest an Activity', new_household_activity_path, class: 'btn-main', style: 'background-color: green; font-size: 2vh;' %> </div>
+
+<div style="width: 60%; margin: 20px auto;">
+<%= simple_form_for [@household, Activity.new] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :points %>
+  <div style="text-align: center;">
+    <%= f.submit class: "btn-main" %>
+  </div>
+<% end %>
+</div>
         <% @household.activities.each do |activity| %>
             <%= render 'activities/activity', activity: activity %>
         <% end %>

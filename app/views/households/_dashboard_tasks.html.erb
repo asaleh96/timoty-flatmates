@@ -23,7 +23,11 @@
         <span class="ml-2" style='font-size: 2vh; color: darkorange;'><strong><%= task.points %> points!</strong></span>
         <span class="ml-auto p-2">
           <span class="mt-auto p-2" style='font-size: 2vh'><%= task.assignee.username %></span>
+          <% if task.assignee.photo.attached? %>
             <%= cl_image_tag task.assignee.photo.key, class: 'rounded-circle text-center object-center', style: 'display: inline', height: 150, width: 150, crop: :fill, gravity: "auto", radius: "max" %>
+          <% else %>
+          <%= image_tag 'user-placeholder.png', class: 'rounded-circle text-center object-center', style: 'display: inline', height: 150, width: 150, crop: :fill, gravity: "auto", radius: "max"  %>
+          <% end %>
           </span>
 
 </div>

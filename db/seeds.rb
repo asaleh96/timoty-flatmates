@@ -1,7 +1,8 @@
 puts "Droping all previous data : househould + user"
 Task.destroy_all
-User.destroy_all
 Household.destroy_all
+User.destroy_all
+
 
 
 # 1. Create! a User (to be Captain) Captain = User.create (fake data) + is_captain = 1

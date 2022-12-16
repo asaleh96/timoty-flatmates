@@ -227,7 +227,8 @@ puts "#{dontsmokeinside.name} has been created!"
 
 movienight = Activity.new(
   name: "Movie Night every Wednesday",
-  household_id: 3
+  household_id: 3,
+  user_id: 9
 )
 movienight.save!
 

@@ -192,7 +192,7 @@ cleankitchen = Task.new(
   creator_id: 9,
   household_id: 3
 )
-cleankitchen.save
+cleankitchen.save!
 
 puts "#{cleankitchen.name} has been created!"
 
@@ -205,7 +205,7 @@ cleanwindows = Task.new(
   creator_id: 9,
   household_id: 3
 )
-cleanwindows.save
+cleanwindows.save!
 
 puts "#{cleanwindows.name} has been created!"
 
@@ -213,7 +213,7 @@ noshoepolicy = Rule.new(
   name: "No shoes inside",
   household_id: 3
 )
-noshoepolicy.save
+noshoepolicy.save!
 
 puts "#{noshoepolicy.name} has been created!"
 
@@ -221,7 +221,7 @@ dontsmokeinside = Rule.new(
   name: "No smoking inside",
   household_id: 3
 )
-dontsmokeinside.save
+dontsmokeinside.save!
 
 puts "#{dontsmokeinside.name} has been created!"
 
@@ -229,6 +229,6 @@ movienight = Activity.new(
   name: "Movie Night every Wednesday",
   household_id: 3
 )
-dontsmokeinside.save
+movienight.save!
 
 puts "#{movienight.name} has been created!"

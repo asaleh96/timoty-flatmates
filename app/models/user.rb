@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_one_attached :photo
   #has_many :tasks, foreign_key: :creator_id
   #has_many :tasks, foreign_key: :assignee_id
-  belongs_to :household, optional: true, dependent: :destroy,
+  belongs_to :household, optional: true
 end

@@ -51,7 +51,7 @@ puts "Creating 6 fake users"
     password: "123456",
     first_name: first_name,
     last_name: last_name,
-    username: "user#{i}",
+    username: "#{first_name}#{i}",
     birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     earned_points: rand(500..1500)
   )
@@ -92,10 +92,10 @@ puts "#{task2.name} has been created!"
 
 puts "XXXX the end XXXX"
 
-puts "Seeding our accounts for PART 1 for Shahid, Caroline, Simona & Ahmed"
+puts "Seeding our accounts for WEEK LATER for Shahid, Caroline, Simona & Ahmed"
 
 shahid = User.new(
-  email: "shahid@gmail.com",
+  email: "shahidfa54@gmail.com",
   password: "123456",
   first_name: "Shahid",
   last_name: "Farroq",
@@ -244,7 +244,7 @@ shahid2 = User.new(
   last_name: "Farroq",
   username: "ShahidF",
   birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-  earned_points: rand(500..1500),
+  earned_points: 0,
   is_captain: true
 )
 shahid2.save!
@@ -256,7 +256,7 @@ caroline2 = User.new(
   last_name: "Bras",
   username: "CarolineB",
   birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-  earned_points: rand(500..1500),
+  earned_points: 0,
   is_captain: false
 )
 caroline2.save!
@@ -268,7 +268,7 @@ simona2 = User.new(
   last_name: "Barone",
   username: "SimonaB",
   birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-  earned_points: rand(500..1500),
+  earned_points: 0,
   is_captain: false
 )
 simona2.save!
@@ -280,7 +280,7 @@ ahmed2 = User.new(
   last_name: "Saleh",
   username: "AhmedS",
   birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-  earned_points: rand(500..1500),
+  earned_points: 0,
   is_captain: false
 )
 ahmed2.save!
@@ -292,7 +292,46 @@ paul = User.new(
   last_name: "LePetit",
   username: "paul",
   birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
-  earned_points: rand(500..1500),
+  earned_points: 0,
   is_captain: false
 )
 paul.save!
+
+julien = User.new(
+  email: "julien5@gmail.com",
+  password: "123456",
+  first_name: "Julien",
+  last_name: "Legrand",
+  username: "julien",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: 0,
+  is_captain: false
+)
+julien.save!
+
+victor = User.new(
+  email: "victor5@gmail.com",
+  password: "123456",
+  first_name: "Victor",
+  last_name: "Legrand",
+  username: "Victor",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: 0,
+  is_captain: false
+)
+victor.save!
+
+jess = User.new(
+  email: "jess5@gmail.com",
+  password: "123456",
+  first_name: "Jess",
+  last_name: "JC",
+  username: "JessJC",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: 0,
+  is_captain: false
+)
+jess.save!
+
+puts "Jess is an active user"
+puts "THE END"

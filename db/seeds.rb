@@ -284,3 +284,15 @@ ahmed2 = User.new(
   is_captain: false
 )
 ahmed2.save!
+
+paul = User.new(
+  email: "paul5@gmail.com",
+  password: "123456",
+  first_name: "paul",
+  last_name: "LePetit",
+  username: "paul",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: rand(500..1500),
+  is_captain: false
+)
+paul.save!

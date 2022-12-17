@@ -92,7 +92,7 @@ puts "#{task2.name} has been created!"
 
 puts "XXXX the end XXXX"
 
-puts "Seeding our accounts for Shahid, Caroline, Simona & Ahmed"
+puts "Seeding our accounts for PART 1 for Shahid, Caroline, Simona & Ahmed"
 
 shahid = User.new(
   email: "shahid@gmail.com",
@@ -157,6 +157,7 @@ ourhousehold = Household.create!(
   name: "MainStreet household",
   captain: shahid
 )
+
 
 shahid.household = ourhousehold
 shahid.household_id = ourhousehold.id
@@ -233,3 +234,53 @@ movienight = Activity.new(
 movienight.save!
 
 puts "#{movienight.name} has been created!"
+
+puts "Seeding our accounts for PART II Shahid, Caroline, Simona & Ahmed"
+
+shahid2 = User.new(
+  email: "shahid2@gmail.com",
+  password: "123456",
+  first_name: "Shahid",
+  last_name: "Farroq",
+  username: "ShahidF",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: rand(500..1500),
+  is_captain: true
+)
+shahid2.save!
+
+caroline2 = User.new(
+  email: "brascaroline642@gmail.com",
+  password: "123456",
+  first_name: "Caroline",
+  last_name: "Bras",
+  username: "CarolineB",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: rand(500..1500),
+  is_captain: false
+)
+caroline2.save!
+
+simona2 = User.new(
+  email: "simona_barone2@hotmail.com",
+  password: "123456",
+  first_name: "Simona",
+  last_name: "Barone",
+  username: "SimonaB",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: rand(500..1500),
+  is_captain: false
+)
+simona2.save!
+
+ahmed2 = User.new(
+  email: "ahmed@gmail.com",
+  password: "123456",
+  first_name: "Ahmed",
+  last_name: "Saleh",
+  username: "AhmedS",
+  birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
+  earned_points: rand(500..1500),
+  is_captain: false
+)
+ahmed2.save!

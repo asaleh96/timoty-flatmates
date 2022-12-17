@@ -238,7 +238,7 @@ puts "#{movienight.name} has been created!"
 puts "Seeding our accounts for PART II Shahid, Caroline, Simona & Ahmed"
 
 shahid2 = User.new(
-  email: "shahid2@gmail.com",
+  email: "shahid5@gmail.com",
   password: "123456",
   first_name: "Shahid",
   last_name: "Farroq",
@@ -250,7 +250,7 @@ shahid2 = User.new(
 shahid2.save!
 
 caroline2 = User.new(
-  email: "brascaroline642@gmail.com",
+  email: "brascaroline645@gmail.com",
   password: "123456",
   first_name: "Caroline",
   last_name: "Bras",
@@ -262,7 +262,7 @@ caroline2 = User.new(
 caroline2.save!
 
 simona2 = User.new(
-  email: "simona_barone2@hotmail.com",
+  email: "simona_barone5@hotmail.com",
   password: "123456",
   first_name: "Simona",
   last_name: "Barone",
@@ -274,7 +274,7 @@ simona2 = User.new(
 simona2.save!
 
 ahmed2 = User.new(
-  email: "ahmed@gmail.com",
+  email: "ahmed5@gmail.com",
   password: "123456",
   first_name: "Ahmed",
   last_name: "Saleh",

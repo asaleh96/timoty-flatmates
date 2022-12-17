@@ -55,9 +55,9 @@ puts "Creating 6 fake users"
     birthday_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     earned_points: rand(500..1500)
   )
-  user.household_id = households[i.even? ? 0 : 1].id
+  # user.household_id = households[i.even? ? 0 : 1].id
   user.save!
-  puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
+  # puts "#{user.username} has been created!, Household ID= #{user.household.id}, Is_captain? = #{user.is_captain?}"
 end
 
 # 4. Creating fake tasks
